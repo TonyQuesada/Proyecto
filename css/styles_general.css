@@ -1,0 +1,34 @@
+body{
+  background: linear-gradient(120deg, #36d1dc, #5b86e5) fixed;
+}
+
+.cabecera{
+  background-color: #050f5a;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+
+  width: 88%; 
+  height: 96px;
+  border: 1px solid rgb(152, 204, 255);
+  border-radius: 5px;
+  margin: auto;
+
+}
+
+.cabecera .h2{
+
+  color: #FFF;
+  font-size: 20px;
+  padding-left: 7%;
+  margin-top: 36px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+}
+
+.a{
+  color: rgb(255, 255, 255);
+  font-size: 17px;
+  text-decoration: none;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
