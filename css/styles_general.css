@@ -1,5 +1,6 @@
 body{
   background: linear-gradient(120deg, #36d1dc, #5b86e5) fixed;
+  height: 10000px;
 }
 
 .cabecera{
@@ -26,9 +27,62 @@ body{
   
 }
 
-.a{
+.cabecera .perfil{
+
+  margin-right: 5%; 
+  margin-top: 20px; 
+  float:right; 
+  text-align:right;
+
+}
+
+.cabecera .logo{
+  margin-top: 15px; 
+  margin-left: 9px; 
+  float:left;
+}
+
+.cabecera .a{
   color: rgb(255, 255, 255);
-  font-size: 17px;
+}
+.cabecera .a:hover 
+{
+     color:#00A0C6; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
+
+.a{
+  font-size: 17px;  
+  color: inherit;
   text-decoration: none;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.a:hover 
+{
+     color:#e4e6ff; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
+
+
+.columna_der{
+  float: left;
+  position: fixed;
+  width: 280px;
+  height: 500px;
+  margin-left: 90px;
+  border-radius: 10px;
+
+  padding-left: 25px;
+  padding-top: 15px;
+  line-height: 40px;  
+  background-color: #2d46ff8d;
+}
+
+.panel{
+  width: 950px;
+  height: 580px;
+  margin-left: 29%;
+  background-color: purple;
 }
