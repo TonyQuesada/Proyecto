@@ -17,12 +17,13 @@ if(isset($_SESSION['u_ID'])){
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        <div class="container">
-            <div class="cabecera">
-                <img src="./favicon.png" width="67" height="62" style="margin-top: 15px; margin-left: 9px; position: fixed;"> 
-                <a href="./index.php" style="text-decoration: none;"><h2 class="h2">Sistema de Gestión de Control Interno</h2></a>
-            </div>
+        
+        <div class="cabecera">
+            <img class="logo" src="./favicon.png" width="67" height="62"> 
+            <a class="a" href="./index.php"><h2 class="h2">Sistema de Gestión de Control Interno</h2></a>
+        </div>
 
+        <div class="container">
             <div id="tarjeta">	
                 <div class="product-details">
                     <h1>Sistema de Gestión de Control Interno</h1>
@@ -32,7 +33,6 @@ if(isset($_SESSION['u_ID'])){
                     <img src="https://www.auditool.org/images/32-Azul-Artículo_940.png" alt="Omar Dsoky">
                 </div>
             </div>
-
 
             <div class="row">
                 <div class="col-md-9">
