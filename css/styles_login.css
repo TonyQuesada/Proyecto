@@ -22,7 +22,11 @@
     color: rgb(19, 130, 241);
     font-size: 14px;
     font-weight: bold;
-    padding-left: 20%;
+  }  
+  .login .div_a {
+    text-align: center;
+    padding-top: 3%;
+    padding-left: 1%;
   }
   .login .form h2 {
     color: #FFF;
@@ -56,4 +60,12 @@
     font-size: 15px;
     margin-top: 40px;
     font-weight: bold;
+  }  
+  .login .form input.submit:hover {
+    background: rgb(171, 213, 255);
+    color: rgb(0, 0, 0);
+    font-size: 20px;    
+    width: 101%;
+    height: 44px;    
+    margin-top: 38px;
   }
