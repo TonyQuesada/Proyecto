@@ -12,7 +12,11 @@ if(!isset($_SESSION['u_ID'])){
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./favicon.ico">
         <link rel="stylesheet" href="./css/styles_general.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>        
+        <link rel="stylesheet" href="./css/styles_process.css">
+        <script src="./common.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js" integrity="sha512-NhRZzPdzMOMf005Xmd4JonwPftz4Pe99mRVcFeRDcdCtfjv46zPIi/7ZKScbpHD/V0HB1Eb+ZWigMqw94VUVaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
     <body>
 
@@ -60,11 +64,37 @@ if(!isset($_SESSION['u_ID'])){
             </div>
 
             <div class="panel">
-                <h2>Panel central</h2>
+                <h1>Barras de Proceso</h1>
+                <div class="circular-process">
+                    <input id="circulo1" name="circulo1" type="text" value="20" class="circle">
+                    <input id="circulo2" name="circulo2" type="text" value="40" class="circle">
+                    <input id="circulo3" name="circulo3" type="text" value="60" class="circle">
+                </div>
+
             </div>
 
         </div>
-        <script src="./common.js"></script>
     </body>
+
+    <script>
+        $(document).ready(function(){
+            $(".circle").knob({
+                "min":0,
+                "max":100,
+                "width":150,
+                "height":150,
+                // "fgColor":"red",
+                "readOnly":true,
+                "displayInput":true
+            });
+            var x; 
+            x = document.getElementById("circulo1").textContent;
+            if(x => "20")
+            {
+                document.getElementById("circulo1").style.color = "green";
+            }
+
+        })
+    </script>
 
 </html>
