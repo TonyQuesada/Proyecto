@@ -47,9 +47,10 @@ body{
 }
 .cabecera .a:hover 
 {
-     color:#00A0C6; 
-     text-decoration:none; 
-     cursor:pointer;  
+  color:#00A0C6; 
+  text-decoration:none; 
+  cursor:pointer;  
+  font-size: 18px;
 }
 
 .a{
@@ -60,16 +61,16 @@ body{
 }
 .a:hover 
 {
-     color:#e4e6ff; 
-     text-decoration:none; 
-     cursor:pointer;  
+  color:#e4e6ff; 
+  text-decoration:none; 
+  cursor:pointer;  
+  font-size: 18px;
 }
-
 
 .columna_der{
   float: left;
   position: fixed;
-  width: 280px;
+  width: 285px;
   height: 500px;
   margin-left: 90px;
   border-radius: 10px;
@@ -81,8 +82,26 @@ body{
 }
 
 .panel{
-  width: 950px;
-  height: 580px;
-  margin-left: 29%;
-  background-color: purple;
+  width: 650px;
+  height: 540px;
+  margin: 2% 38% auto;
+  text-align: center;
+  font-size: 25px;
+  border-radius: 3%;
+  border: 5px solid #050f5a;
+}
+
+.panel h2{
+  padding-top: 18px;
+}
+
+.circle{
+  color: #00A0C6;
+
+
+}
+
+.circular-process{
+  margin: 0 auto;
+  text-align: center;
 }
