@@ -12,6 +12,7 @@ if(!isset($_SESSION['u_ID'])){
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../favicon.ico">
         <link rel="stylesheet" href="../css/styles_general.css">
+        <link rel="stylesheet" href="../css/styles_roles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>        
     </head>
     <body>
@@ -60,7 +61,48 @@ if(!isset($_SESSION['u_ID'])){
             </div>
 
             <div class="panel">
-                <h2>Panel central</h2>
+                <h2>Asignación de Roles</h2>
+                <div class="contenido">
+                    
+                    <form method="post" action="../administrador.php">
+
+                        <div class="items">
+                            <label for="roles_nombre">Nombre del funcionario:</label>
+                        </div>                   
+                        <div class="items">
+                            <input type="text" id="roles_nombre" name="roles_nombre" value="">
+                        </div>         
+                        </br>
+                        
+                        <div class="items">
+                            <label for="roles_direccion">Seleccionar la dirección:</label>   
+                        </div>                   
+                        <div class="items">
+                            <input type="text" id="roles_direccion" name="roles_direccion" value="">
+                        </div>         
+                        </br>
+
+                        <div class="items">
+                            <label for="roles_departamento">Seleccionar el departamento:</label>  
+                        </div>                    
+                        <div class="items">
+                            <input type="text" id="roles_departamento" name="roles_departamento" value="">
+                        </div>           
+                        </br>
+
+                        <div class="items">
+                            <label for="roles_rol">Seleccionar el rol:</label>  
+                        </div>                    
+                        <div class="items">
+                            <input type="text" id="roles_rol" name="roles_rol" value="">
+                        </div>        
+                        </br>
+
+                        <input type="submit" value="Asignar Rol" class="submit">
+                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
+
+                    </form>
+                </div>
             </div>
 
         </div>
