@@ -52,8 +52,10 @@ if(isset($_SESSION['u_ID'])){
                             <form method="post" action="./util/login.php">
                                 <input type="email" id="user-correo" name="user-correo" placeholder="Correo Electrónico" required>
                                 <input type="password" id="user-contrasena" name="user-contrasena" placeholder="Contraseña" required>
-                                <input type="submit" value="Entrar" class="submit" >
-                                <a class="a" href="./index.php"> Recuperar Contraseña</a>
+                                <input type="submit" value="Ingresar" class="submit" >
+                                <div class="div_a">
+                                    <a class="a" href="./register.php"> Registrarse</a>
+                                </div>
                             </form>
                         </div>
                     </div>
