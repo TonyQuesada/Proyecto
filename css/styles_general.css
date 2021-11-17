@@ -1,6 +1,6 @@
 body{
   background: linear-gradient(120deg, #36d1dc, #5b86e5) fixed;
-  height: 10000px;
+  height: 1000px;
 }
 
 .cabecera{
@@ -70,7 +70,7 @@ body{
 
 .columna_der{
   float: left;
-  position: fixed;
+  /* position: fixed; */
   width: 285px;
   height: 500px;
   margin-left: 90px;
@@ -139,10 +139,11 @@ body{
   width: 100%;  
   display: none;
   color: #000;
-  border-radius: 2%;
+  border-radius: 3%;
   background-color: #2d46ff8d;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 
+  border: 1px solid #004c82;
   /* position: absolute;
   min-width: 160px;
   overflow: auto; */  
@@ -157,10 +158,75 @@ body{
 }
 
 .dropdown-content a:hover {  
-  border-radius: 2%;
-  background-color: #f1f1f1
+  border-radius: 3%;
+  background-color: #bbf0ff;
+  border: 1px solid #050f5a;
 }
 
 /* .dropdown a:hover {background-color: #f1f1f1} */
 
 .show {display:block;}
+
+
+.panel .contenido{
+  width: 650px;
+  height: 400px;
+  margin: 43px auto;
+
+  /* background-color: green; */
+}  
+
+.panel .contenido .items{
+  margin: auto;
+  width: 450px;
+  font-size: 20px;
+
+  /*  background-color: aqua;  */
+}
+
+.panel .contenido .items2{
+  width: 230px;
+  font-size: 20px;
+
+   /* background-color: aqua;  */
+}
+
+.panel .contenido .items input{
+  height: 20px;  
+  width: 50%;
+  color: #000;
+}
+
+.panel .contenido input {
+  height: 40px;
+  margin-top: 1px;
+  background: rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.1);
+  color: #FFF;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.panel .contenido textarea {
+  margin-top: 8px;
+  background: rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.1);
+  color: #000;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.panel .contenido input.submit {
+  background: rgba(255,255,255,.9);
+  color: #444;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 2%;
+  
+}  
+.panel .contenido input.submit:hover {
+  background: rgb(171, 213, 255);
+  color: rgb(0, 0, 0);
+  font-size: 16px;    
+  height: 44px;
+}
