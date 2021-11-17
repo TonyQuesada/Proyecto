@@ -28,6 +28,7 @@ if ($email != "" && $password != ""){
             $_SESSION['u_Subrol'] = $row['Subrol'];
             $_SESSION['u_Direccion'] = $row['Direccion'];
             $_SESSION['u_Departamento'] = $row['Departamento'];
+            $_SESSION['conexion'] = $con;
             header('Location: ../administrador.php');
         } else {
             $_COOKIE["error"] = "Contrase&ntilde;a invalida";
