@@ -47,7 +47,15 @@ if(!isset($_SESSION['u_ID'])){
                 <!-- Fiscalizador -->
                 <?php if ($_SESSION['u_idRol'] == 2){ ?>
                     </br><a class="a" href="./fiscalizador/asignar_roles.php"> Asignar Roles</a>
-                    </br><a class="a" href="./fiscalizador/definir_alcance_metas.php"> Definir Alcance Metas</a>
+
+                    </br><div class="dropdown">
+                        <a class="a" onclick="myFunction()">Alcance de Metas</a>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a class="a" href="./fiscalizador/asignar_roles.php">Definir Alcances</a>
+                            <a class="a" href="./fiscalizador/asignar_roles.php">Comunicar Apertura y Cierre del Proceso</a>
+                        </div>
+                    </div>
+
                     </br><a class="a" href="./fiscalizador/departamentos.php"> Departamentos</a>
                     </br><a class="a" href="./fiscalizador/direccciones.php"> Direccciones</a>
                     </br><a class="a" href="./fiscalizador/establecer_fechas_evaluacion.php"> Establecer Fechas de Evaluación</a>
@@ -67,7 +75,7 @@ if(!isset($_SESSION['u_ID'])){
                 <h1>Barras de Proceso</h1>
                 <div class="circular-process">
                     <input id="circulo1" name="circulo1" type="text" value="20" class="circle">
-                    <input id="circulo2" name="circulo2" type="text" value="40" class="circle">
+                    <input id="circulo2" name="circulo2" type="text" value="45" class="circle">
                     <input id="circulo3" name="circulo3" type="text" value="60" class="circle">
                 </div>
 
@@ -95,6 +103,29 @@ if(!isset($_SESSION['u_ID'])){
             }
 
         })
+    </script>
+    
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+        if (!event.target.matches('.a')) {
+
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+            }
+        }
+        }
     </script>
 
 </html>

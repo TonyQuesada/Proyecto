@@ -3,10 +3,10 @@
 session_start();
 
 // Parámetros de conexión a MySQL
-$host = "localhost"; /* Host name */
-$user = "root"; /* User */
-$password = "root"; /* Password */
-$dbname = "control_interno"; /* Database name */
+$host = "bpqw7wy3m4jxuqui9qxt-mysql.services.clever-cloud.com"; /* Host name */
+$user = "u6us1gqytoh1zhax"; /* User */
+$password = "GC5S9CoFBHH79baNv7lF"; /* Password */
+$dbname = "bpqw7wy3m4jxuqui9qxt"; /* Database name */
 
 // Establecemos la conexión, si falla imprimimos un error.
 $con = mysqli_connect($host, $user, $password,$dbname);
