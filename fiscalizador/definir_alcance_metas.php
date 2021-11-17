@@ -60,7 +60,42 @@ if(!isset($_SESSION['u_ID'])){
             </div>
 
             <div class="panel">
-                <h2>Panel central</h2>
+                <h2>Definir Alcances</h2>
+                <div class="contenido">
+                    
+                    <form method="post" action="../administrador.php">
+
+                        <div class="items">
+                            <label for="roles_nombre">Meta:</label>
+                        </div>                   
+                        <div class="items">
+                        <p><select name="id_meta">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            </select></p>
+                        </div>         
+                        </br>
+                        
+                        <div class="items">
+                        <p>Atributo: <input type="text" name="atributo"/></p>
+                        <p>Descripción del alcance:<br/>
+                            <textarea name="descrip_alcance" rows="5" cols="50">Ingrese la descripción del alcance</textarea></p>
+                        </fieldset>   
+                        </div>                   
+                              
+                        </br>
+
+                        <input type="submit" value="Guardar" class="submit">
+                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
+
+                    </form>
+                </div>
             </div>
 
         </div>
