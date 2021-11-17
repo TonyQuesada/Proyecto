@@ -26,7 +26,7 @@ if(isset($_SESSION['u_ID'])){
         <div class="container">
             <div id="tarjeta">	
                 <div class="product-details">
-                    <h1>Sistema de Gestión de Control Intern</h1>
+                    <h1>Sistema de Gestión de Control Interno</h1>
                     <p class="information">"Administración y Programación de Sitios Web "</p>		
                 </div>
                 <div class="product-image">
