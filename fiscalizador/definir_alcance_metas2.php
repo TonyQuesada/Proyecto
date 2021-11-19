@@ -66,7 +66,43 @@ if(!isset($_SESSION['u_ID'])){
             </div>
 
             <div class="panel">
-                <h2>Panel central</h2>
+            <h2>Eliminar Alcances</h2>
+                <div class="contenido">
+                    
+                    <form method="post" action="../administrador.php">
+                        <div class="items">
+                            <label for="roles_nombre">Identificador de la meta:</label>
+                        </div>                   
+                        <div class="items">
+                        <p><select name="id_meta"><option>1</option>
+                            </select></p>
+                        </div>                       
+                        <p>Meta:<br/>
+                            <textarea name="descrip_meta" rows="5" cols="50">Descripción de la meta</textarea></p>
+                        </fieldset>
+                        <div class="items">
+                            <label for="roles_nombre">Identificador del alcance:</label>
+                        </div>                   
+                        <div class="items">
+                        <p><select name="id_alcance">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                            </select></p>
+                        </div>    
+                        <div class="items">
+                        <p>Atributo: <input type="text" name="atributo"/></p>
+                        <p>Descripción del alcance:<br/>
+                            <textarea name="descrip_alcance" rows="5" cols="50">Ingrese la descripción del alcance</textarea></p>
+                        </fieldset>   
+                        </div>                   
+                              
+                        </br>
+
+                        <input type="submit" value="Eliminar" class="submit">
+                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
+                        </div>
             </div>
 
         </div>

@@ -66,64 +66,48 @@ if(!isset($_SESSION['u_ID'])){
             </div>
 
             <div class="panel">
-                <h2>Formulario para el alcance de metas</h2>
-                <div class="contenido" style="width: 1000px;">
+            <h2>Modificar Alcances</h2>
+                <div class="contenido">
                     
-                    <form method="post" action="../administrador.php">  
-
-                        <div style="float: left; margin-left: 10%;">
-                            <div style="float: left; text-align: left; padding-left: 0%;">
-                                <div class="items2"> 
-                                    <label for="alcance_direccion">Dirección:</label>
-                                    <select name="alcance_direccion" id="alcance_direccion">
-                                        <option>1</option>
-                                        <option>2</option>
-                                    </select>
-                                </div>                        
-                                <div class="items2"> 
-                                    <label for="alcance_departamento">Departamento:</label>
-                                    <select name="alcance_departamento" id="alcance_departamento">
-                                        <option>1</option>
-                                        <option>2</option>
-                                    </select>
-                                </div>
-                            </div>   
-
-                            <div style="float: right; text-align: right; padding-right: 0%;">
-                                <div class="items2"> 
-                                    <label for="alcance_modelo">Modelo de Madurez:</label>
-                                    <select name="alcance_modelo" id="alcance_modelo">
-                                        <option>1</option>
-                                        <option>2</option>
-                                    </select>
-                                </div>  
-                                <div class="items2"> 
-                                    <label for="alcance_meta">Meta:</label>
-                                    <select name="alcance_meta" id="alcance_meta">
-                                        <option>1</option>
-                                        <option>2</option>
-                                    </select>
-                                </div>  
-                            </div>  
-                            
+                    <form method="post" action="../administrador.php">
+                        <div class="items">
+                            <label for="roles_nombre">Identificador de la meta:</label>
+                        </div>                   
+                        <div class="items">
+                        <p><select name="id_meta"><option>1</option>
+                            </select></p>
+                        </div>                       
+                        <p>Meta:<br/>
+                            <textarea name="descrip_meta" rows="5" cols="50">Descripción de la meta</textarea></p>
+                        </fieldset>
+                        <div class="items">
+                            <label for="roles_nombre">Identificador del alcance:</label>
+                        </div>                   
+                        <div class="items">
+                        <p><select name="id_alcance">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                            </select></p>
                         </div>
+                        <div class="items">
+                        <p>Atributo actual: <input type="text" name="atributo"/></p>
+                        <p>Descripción actual:<br/>
+                            <textarea name="descrip_alcance" rows="5" cols="50">Descripción actual del alcance</textarea></p>
+                        </fieldset>   
+                        </div>    
+                        <div class="items">
+                        <p>Nuevo Atributo: <input type="text" name="atributo"/></p>
+                        <p>Nueva Descripción del alcance:<br/>
+                            <textarea name="descrip_alcance" rows="5" cols="50">Ingrese la descripción del alcance</textarea></p>
+                        </fieldset>   
+                        </div>                   
+                              
+                        </br>
 
-                        </br></br>
-                        </br></br>
-
-                        <div style="margin-right: 35%;">
-                            <div class="items">
-                                <label for="alcance_atributo">Atributo:</label>
-                                <input type="text" id="alcance_atributo" name="alcance_atributo" value="">                            
-                            </div>              
-                            </br>   
-                            
-                            <div class="items">
-                                <label>Descripción del alcance:</label>
-                                <textarea name="descrip_alcance" rows="5" cols="50" placeholder="Ingrese la descripción del alcance..."></textarea>      
-                            </div>   
-                            <input type="submit" value="Guardar" class="submit">
-                            <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" /> 
+                        <input type="submit" value="Modificar" class="submit">
+                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
                         </div>
 
                     </form>

@@ -66,10 +66,17 @@ if(!isset($_SESSION['u_ID'])){
             </div>
 
             <div class="panel">
-                <h2>Ingreso de Direcciones</h2>
-                <p>Ingrese el nombre: <input type="text" name="nombre_direccion"/></p>
-                <p>Ingrese el director: <input type="text" name="id_director"/></p>
-                <input type="submit" value="Guardar" class="submit">
+                <h2>Modificar Direcciones</h2>
+                <div class="items">
+                    <label for="roles_nombre">Direcciones:</label>
+                </div>                   
+                <div class="items">
+                <p><select name="id_direcciones"><option>Dirección</option>
+                </select></p>
+                </div>
+                <p>Nombre: <input type="text" name="nombre_direccion"/></p>
+                <p>Director: <input type="text" name="id_director"/></p>
+                <input type="submit" value="Modificar" class="submit">
                 <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" /> 
             </div>
 

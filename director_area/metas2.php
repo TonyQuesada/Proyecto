@@ -72,7 +72,27 @@ if(!isset($_SESSION['u_ID'])){
             </div>
 
             <div class="panel">
-                <h2>Panel central</h2>
+            <h2>Eliminación de metas</h2>
+                <p>Seleccione el componente: <select name="id_componente">
+                <option>Ambiente de Control</option>
+                <option>Valoracion del riesgo</option>
+                <option>Actividades de control</option>
+                <option>Sistemas de informacion</option>
+                <option>Seguimiento</option>
+                </select></p>
+
+                <p>Seleccione la meta: <select name="id_meta">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                </select></p>    
+            <div class="items">
+                 <label>Meta:</label>
+                 <textarea name="descrip_meta" rows="5" cols="50" placeholder="Descripción de la meta..."></textarea>      
+            </div>    
+            <input type="submit" value="Eliminar" class="submit">
+                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
             </div>
 
         </div>

@@ -33,19 +33,13 @@ if(!isset($_SESSION['u_ID'])){
         <div class="container">            
             <div class="columna_der">
                 <a class="a" href="../administrador.php">Inicio</a>
-                
+
                 <!-- Director de Área -->
-                <?php if ($_SESSION['u_idRol'] == 1){ ?>                
-                </br><div class="dropdown">
-                        <a class="a" onclick="myFunction()" style="color: #031075; font-size: 21px; font-weight: bold;">> Metas</a>
-                        <div id="myDropdown" class="dropdown-content">
-                            <a class="a" href="./metas1.php">Definir Metas</a>
-                            <a class="a" href="./metas2.php">Comunicar Definición</a>
-                        </div>
-                    </div>
+                <?php if ($_SESSION['u_idRol'] == 1){ ?>
+                    </br><a class="a" href="./metas.php" style="color: #031075; font-size: 21px; font-weight: bold;"> Metas</a>
                     </br><a class="a"href="./resultados.php"> Resultados</a>
                 <?php } ?>
-
+                
                 <!-- Fiscalizador -->
                 <?php if ($_SESSION['u_idRol'] == 2){ ?>
                     </br><a class="a" href="./asignar_roles.php"> Asignar Roles</a>
@@ -72,7 +66,21 @@ if(!isset($_SESSION['u_ID'])){
             </div>
 
             <div class="panel">
-                <h2>Panel central</h2>
+                <h2>Definición de metas</h2>
+                <p>Seleccione el componente: <select name="id_componente">
+                <option>Ambiente de Control</option>
+                <option>Valoracion del riesgo</option>
+                <option>Actividades de control</option>
+                <option>Sistemas de informacion</option>
+                <option>Seguimiento</option>
+                </select></p>
+
+            <div class="items">
+                 <label>Meta:</label>
+                 <textarea name="descrip_meta" rows="5" cols="50" placeholder="Ingrese la descripción de la meta..."></textarea>      
+            </div>    
+            <input type="submit" value="Definir meta" class="submit">
+                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
             </div>
 
         </div>

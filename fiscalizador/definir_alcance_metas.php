@@ -64,24 +64,16 @@ if(!isset($_SESSION['u_ID'])){
                 <div class="contenido">
                     
                     <form method="post" action="../administrador.php">
-
                         <div class="items">
-                            <label for="roles_nombre">Meta:</label>
+                            <label for="roles_nombre">Identificador de la meta:</label>
                         </div>                   
                         <div class="items">
-                        <p><select name="id_meta">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
+                        <p><select name="id_meta"><option>1</option>
                             </select></p>
-                        </div>         
-                        </br>
-                        
+                        </div>                       
+                        <p>Meta:<br/>
+                            <textarea name="descrip_meta" rows="5" cols="50">Descripción de la meta</textarea></p>
+                        </fieldset>  
                         <div class="items">
                         <p>Atributo: <input type="text" name="atributo"/></p>
                         <p>Descripción del alcance:<br/>
@@ -91,7 +83,7 @@ if(!isset($_SESSION['u_ID'])){
                               
                         </br>
 
-                        <input type="submit" value="Guardar" class="submit">
+                        <input type="submit" value="Definir" class="submit">
                         <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
 
                     </form>
