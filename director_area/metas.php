@@ -66,7 +66,21 @@ if(!isset($_SESSION['u_ID'])){
             </div>
 
             <div class="panel">
-                <h2>Panel central</h2>
+                <h2>Definición de metas</h2>
+                <p>Seleccione el componente: <select name="id_componente">
+                <option>Ambiente de Control</option>
+                <option>Valoracion del riesgo</option>
+                <option>Actividades de control</option>
+                <option>Sistemas de informacion</option>
+                <option>Seguimiento</option>
+                </select></p>
+
+            <div class="items">
+                 <label>Meta:</label>
+                 <textarea name="descrip_meta" rows="5" cols="50" placeholder="Ingrese la descripción de la meta..."></textarea>      
+            </div>    
+            <input type="submit" value="Definir meta" class="submit">
+                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
             </div>
 
         </div>

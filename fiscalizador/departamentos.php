@@ -66,7 +66,13 @@ if(!isset($_SESSION['u_ID'])){
             </div>
 
             <div class="panel">
-                <h2>Panel central</h2>
+                <h2>Ingreso de Departamentos</h2>
+                <legend>Datos del nuevo departamento</legend>
+                <p>Seleccione la dirección: <input type="text" name="nombre_direccion"/></p>
+                <p>Ingrese el nombre:    <input type="text" name="nombre_departamento"/></p>
+                <p>Ingrese el encargado: <input type="text" name="id_encargado"/></p>
+                <input type="submit" value="Guardar" class="submit">
+                <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" /> 
             </div>
 
         </div>

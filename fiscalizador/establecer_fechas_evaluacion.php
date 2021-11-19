@@ -66,9 +66,21 @@ if(!isset($_SESSION['u_ID'])){
             </div>
 
             <div class="panel">
-                <h2>Panel central</h2>
+                <h2>Establecimiento de fechas</h2>
+                <legend>Ingrese las fechas de apertura y cierre de los componentes</legend>
+                <p>Seleccione el componente: <select name="id_componente">
+                <option>Ambiente de Control</option>
+                <option>Valoracion del riesgo</option>
+                <option>Actividades de control</option>
+                <option>Sistemas de informacion</option>
+                <option>Seguimiento</option>
+                </select></p>
+                <p>Fecha de apertura: <input id="fecha_apertura" type="date"></p>
+                <p>Fecha de cierre: <input id="fecha_cierre" type="date"></p>
+                <input type="submit" value="Establecer" class="submit">
+                <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
             </div>
-
+                  
         </div>
         <script src="./common.js"></script>
     </body>

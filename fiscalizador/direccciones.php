@@ -66,7 +66,12 @@ if(!isset($_SESSION['u_ID'])){
             </div>
 
             <div class="panel">
-                <h2>Panel central</h2>
+                <h2>Ingreso de Direcciones</h2>
+                <legend>Datos de la nueva dirección</legend>
+                <p>Ingrese el nombre: <input type="text" name="nombre_direccion"/></p>
+                <p>Ingrese el director: <input type="text" name="id_director"/></p>
+                <input type="submit" value="Guardar" class="submit">
+                <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" /> 
             </div>
 
         </div>
