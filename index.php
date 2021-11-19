@@ -34,16 +34,26 @@ if(isset($_SESSION['u_ID'])){
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-9">
-                    <?php if (isset($_COOKIE["error"])) { ?>
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>Error</strong>: <?php echo $_COOKIE["error"]; ?>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
+            <div>
+                <div>
+
                     <?php
-                        unset($_COOKIE["error"]);
-                    }?>
+                        if(@$_GET['Empty']==true)
+                        {
+                    ?>
+                        <div> <?php echo $_GET['Empty']?> </div>                    
+                    <?php
+                        }
+                    ?>                    
+                    
+                    <?php
+                    if(@$_GET['Invalid']==true)
+                    {
+                    ?>
+                        <div> <?php echo $_GET['Invalid']?> </div>                    
+                    <?php
+                        }
+                    ?>
 
                     <div class="login">
                         <div class="form">
@@ -52,7 +62,7 @@ if(isset($_SESSION['u_ID'])){
                             <form method="post" action="./util/login.php">
                                 <input type="email" id="user-correo" name="user-correo" placeholder="Correo Electrónico" required>
                                 <input type="password" id="user-contrasena" name="user-contrasena" placeholder="Contraseña" required>
-                                <input type="submit" value="Ingresar" class="submit" >
+                                <input type="submit" name="Login" value="Ingresar" class="submit" >
                                 <div class="div_a">
                                     <a class="a" href="./register.php"> Registrarse</a>
                                 </div>

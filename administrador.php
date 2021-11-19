@@ -36,11 +36,17 @@ if(!isset($_SESSION['u_ID'])){
 
         <div class="container">            
             <div class="columna_der">
-                <a class="a" href="administrador.php" style="color: #031075; font-size: 21px; font-weight: bold;">Inicio</a>
+                <a class="a" href="administrador.php" style="color: #031075; font-size: 21px; font-weight: bold;">> Inicio</a>
 
                 <!-- Director de Área -->
-                <?php if ($_SESSION['u_idRol'] == 1){ ?>
-                    </br><a class="a" href="./director_area/metas.php"> Metas</a>
+                <?php if ($_SESSION['u_idRol'] == 1){ ?>                
+                </br><div class="dropdown">
+                        <a class="a" onclick="myFunction()">Metas</a>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a class="a" href="./director_area/metas1.php">Definir Metas</a>
+                            <a class="a" href="./director_area/metas2.php">Comunicar Definición</a>
+                        </div>
+                    </div>
                     </br><a class="a"href="./director_area/resultados.php"> Resultados</a>
                 <?php } ?>
                 
@@ -97,7 +103,7 @@ if(!isset($_SESSION['u_ID'])){
             x = document.getElementById("circulo1").textContent;
             if(x => "20")
             {
-                document.getElementById("circulo1").style.color = "green";
+                document.getElementById("circulo1").style.color = "red";
             }
 
         })
