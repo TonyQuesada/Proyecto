@@ -6,6 +6,13 @@ if(!isset($_SESSION['u_ID']))
     header('Location: ../index.php');
 } 
 
+$id = $_GET["id"];
+$sql = "SELECT * FROM ListarDepartamentos WHERE ID_Dpto=$id";
+$result = mysqli_query($con, $sql);
+if ($result) {
+    $departamento = mysqli_fetch_assoc($result);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -36,19 +43,13 @@ if(!isset($_SESSION['u_ID']))
         <div class="container">            
             <div class="columna_der">
                 <a class="a" href="../administrador.php">Inicio</a>
-                
+
                 <!-- Director de Área -->
-                <?php if ($_SESSION['u_idRol'] == 1){ ?>                
-                </br><div class="dropdown">
-                        <a class="a" onclick="myFunction()" style="color: #031075; font-size: 21px; font-weight: bold;">> Metas</a>
-                        <div id="myDropdown" class="dropdown-content">
-                            <a class="a" href="./metas1.php">Definir Metas</a>
-                            <a class="a" href="./metas2.php">Comunicar Definición</a>
-                        </div>
-                    </div>
+                <?php if ($_SESSION['u_idRol'] == 1){ ?>
+                    </br><a class="a" href="./metas.php"> Metas</a>
                     </br><a class="a"href="./resultados.php"> Resultados</a>
                 <?php } ?>
-
+                
                 <!-- Fiscalizador -->
                 <?php if ($_SESSION['u_idRol'] == 2){ ?>
                     </br><a class="a" href="./asignar_roles.php"> Asignar Roles</a>
@@ -59,7 +60,7 @@ if(!isset($_SESSION['u_ID']))
                             <a class="a" href="./definir_alcance_metas2.php">Comunicar Apertura y Cierre del Proceso</a>
                         </div>
                     </div>
-                    </br><a class="a" href="./departamentos.php"> Departamentos</a>
+                    </br><a class="a" href="./departamentos.php" style="color: #031075; font-size: 21px; font-weight: bold;">> Departamentos</a>
                     </br><a class="a" href="./direcciones.php"> Direcciones</a>
                     </br><a class="a" href="./establecer_fechas_evaluacion.php"> Establecer Fechas de Evaluación</a>
                     </br><a class="a" href="./resultados.php"> Resultados</a>
@@ -75,40 +76,55 @@ if(!isset($_SESSION['u_ID']))
             </div>
 
             <div class="panel">
-                <h2>Modificación de metas</h2>
-                <p>Seleccione el componente: <select name="id_componente">
-                <option>Ambiente de Control</option>
-                <option>Valoracion del riesgo</option>
-                <option>Actividades de control</option>
-                <option>Sistemas de informacion</option>
-                <option>Seguimiento</option>
-                </select></p>
 
-                <p>Seleccione la meta: <select name="id_meta">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                </select></p>    
-            <div class="items">
-                 <label>Meta:</label>
-                 <textarea name="descrip_meta" rows="5" cols="50" placeholder="Ingrese la nueva descripción de la meta..."></textarea>      
-            </div>    
-            <input type="submit" value="Modificar" class="submit">
-                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
+                <h2>Eliminación de departamentos</h2>
+
+                <div class="contenido">
+                    
+                    <form method="post" action="../util/departamentos_eliminar.php">
+
+                        <?php
+                            if (isset($_GET["id"])) {
+                                echo "<input type=\"hidden\" name=\"id\" value=\"".$_GET["id"]."\">";
+                            }
+                        ?>
+
+                        <div class="items">
+                            <label for="departamento_direccion">Dirección:</label>
+                        </div>
+                        <div class="items">
+                            <input type="text" name="departamento_direccion" id="departamento_direccion" value="<?php echo $departamento["Direccion"]?>" readonly>
+                        </div>
+                        <div class="items">
+                            <label for="departamento_nombre">Departamento:</label>
+                        </div>
+                        <div class="items">
+                            <input type="text" name="departamento_nombre" id="departamento_nombre" value="<?php echo $departamento["Nombre_Departamento"]?>" readonly>
+                        </div>
+                        <div class="items">
+                            <label for="departamento_id">Encargado:</label>
+                        </div>
+                        <div class="items">
+                            <input type="text" name="departamento_id" id="departamento_id" value="<?php echo $departamento["Encargado"]?>" readonly>
+                        </div> 
+                        </br>
+
+                        <input type="submit" value="Eliminar" class="submit">
+                        <input type="button" class="submit" onclick="location.href='departamentos.php' "value="Volver" /> 
+
+                    </form>
+                </div>                
             </div>
 
         </div>
         <script src="./common.js"></script>
     </body>
     <script>
-        /* When the user clicks on the button, 
-        toggle between hiding and showing the dropdown content */
+
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
 
-        // Close the dropdown if the user clicks outside of it
         window.onclick = function(event) {
         if (!event.target.matches('.a')) {
 

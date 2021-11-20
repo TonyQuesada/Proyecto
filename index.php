@@ -1,9 +1,12 @@
 <?php
-session_start();
-if(isset($_SESSION['u_ID'])){
+include_once('php_config.php');
+if(isset($_SESSION['u_ID'])) 
+{ 
     header('Location: administrador.php');
-}
-?>
+} 
+?>    
+
+
 
 <!DOCTYPE html>
 <html>

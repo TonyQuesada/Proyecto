@@ -9,7 +9,7 @@
         $password = mysqli_real_escape_string($con, $_POST['user-contrasena']);
         
         if ($email != "" && $password != ""){
-            $sql_query = "CALL sp_BuscarUsuario('".$email."');";
+            $sql_query = "CALL BuscarUsuario('".$email."');";
             $result = mysqli_query($con, $sql_query);
             $row = mysqli_fetch_array($result);
             if ($row['Estado'] == 'ERROR') {

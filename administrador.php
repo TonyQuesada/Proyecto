@@ -1,8 +1,9 @@
 <?php
-session_start();
-if(!isset($_SESSION['u_ID'])){
-    header('Location: index.php');
-}
+    include_once('php_config.php');
+    if(!isset($_SESSION['u_ID'])) 
+    { 
+        header('Location: index.php');
+    } 
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +32,7 @@ if(!isset($_SESSION['u_ID'])){
                 </div>
             </div>
             <img class="logo" src="./favicon.png" width="67" height="62"> 
-            <a class="a" href="./index.php"><h2 class="h2">Sistema de Gestión de Control Interno</h2></a>
+            <a class="a" href="../index.php"><h2 class="h2">Sistema de Gestión de Control Interno | <?php echo $_SESSION['u_Rol'] ?> </h2></a>
         </div>
 
         <div class="container">            
@@ -61,7 +62,7 @@ if(!isset($_SESSION['u_ID'])){
                         </div>
                     </div>
                     </br><a class="a" href="./fiscalizador/departamentos.php"> Departamentos</a>
-                    </br><a class="a" href="./fiscalizador/direccciones.php"> Direccciones</a>
+                    </br><a class="a" href="./fiscalizador/direcciones.php"> Direcciones</a>
                     </br><a class="a" href="./fiscalizador/establecer_fechas_evaluacion.php"> Establecer Fechas de Evaluación</a>
                     </br><a class="a" href="./fiscalizador/resultados.php"> Resultados</a>
                 <?php } ?>                        
@@ -76,7 +77,11 @@ if(!isset($_SESSION['u_ID'])){
             </div>
 
             <div class="panel">
-                <h1>Barras de Proceso</h1>
+                <div style="text-align: left; margin-left: 15px;">
+                    <h3>Hola <?php echo "<font color=#1a31e0c1>". $_SESSION['u_Nombre'] ."</font>";?></h3>
+                    <h3>Bienvenido al Sistema de Control Interno</h3>
+                </div>
+                </br>
                 <div class="circular-process">
                     <input id="circulo1" name="circulo1" type="text" value="20" class="circle">
                     <input id="circulo2" name="circulo2" type="text" value="45" class="circle">

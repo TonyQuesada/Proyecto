@@ -4,7 +4,14 @@ include_once('../php_config.php');
 if(!isset($_SESSION['u_ID'])) 
 { 
     header('Location: ../index.php');
-} 
+}                                     
+
+$id = $_GET["id"];
+$sql = "SELECT * FROM ListarDepartamentos WHERE ID_Dpto=$id";
+$result = mysqli_query($con, $sql);
+if ($result) {
+    $departamento = mysqli_fetch_assoc($result);
+}
 
 ?>
 
@@ -47,13 +54,13 @@ if(!isset($_SESSION['u_ID']))
                 <?php if ($_SESSION['u_idRol'] == 2){ ?>
                     </br><a class="a" href="./asignar_roles.php"> Asignar Roles</a>
                     </br><div class="dropdown">
-                        <a class="a" onclick="myFunction()" style="color: #031075; font-size: 21px; font-weight: bold;">> Alcance de Metas</a>
+                        <a class="a" onclick="myFunction()">Alcance de Metas</a>
                         <div id="myDropdown" class="dropdown-content">
                             <a class="a" href="./definir_alcance_metas1.php">Definir Alcances</a>
                             <a class="a" href="./definir_alcance_metas2.php">Comunicar Apertura y Cierre del Proceso</a>
                         </div>
                     </div>
-                    </br><a class="a" href="./departamentos.php"> Departamentos</a>
+                    </br><a class="a" href="./departamentos.php" style="color: #031075; font-size: 21px; font-weight: bold;">> Departamentos</a>
                     </br><a class="a" href="./direcciones.php"> Direcciones</a>
                     </br><a class="a" href="./establecer_fechas_evaluacion.php"> Establecer Fechas de Evaluación</a>
                     </br><a class="a" href="./resultados.php"> Resultados</a>
@@ -69,52 +76,73 @@ if(!isset($_SESSION['u_ID']))
             </div>
 
             <div class="panel">
-            <h2>Modificar Alcances</h2>
+
+                <h2>Modificación de departamentos</h2>
+
                 <div class="contenido">
                     
-                    <form method="post" action="../administrador.php">
+                    <form method="post" action="../util/departamentos_modificar.php">
+
+                        <?php
+                            if (isset($_GET["id"])) {
+                                echo "<input type=\"hidden\" name=\"id\" value=\"".$_GET["id"]."\">";
+                            }
+                        ?>
+
                         <div class="items">
-                            <label for="roles_nombre">Identificador de la meta:</label>
-                        </div>                   
-                        <div class="items">
-                        <p><select name="id_meta"><option>1</option>
-                            </select></p>
-                        </div>                       
-                        <p>Meta:<br/>
-                            <textarea name="descrip_meta" rows="5" cols="50">Descripción de la meta</textarea></p>
-                        </fieldset>
-                        <div class="items">
-                            <label for="roles_nombre">Identificador del alcance:</label>
-                        </div>                   
-                        <div class="items">
-                        <p><select name="id_alcance">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                            </select></p>
+                            <label for="departamento_direccion">Dirección:</label>
                         </div>
                         <div class="items">
-                        <p>Atributo actual: <input type="text" name="atributo"/></p>
-                        <p>Descripción actual:<br/>
-                            <textarea name="descrip_alcance" rows="5" cols="50">Descripción actual del alcance</textarea></p>
-                        </fieldset>   
-                        </div>    
+                            <input type="hidden" name="departamento_direccion_nuevo" id="departamento_direccion_nuevo" value="<?php echo $departamento["idDireccion"]?>">
+                            <input type="text" name="departamento_direccion" id="departamento_direccion" value="<?php echo $departamento["Direccion"]?>" readonly>
+                        </div>
                         <div class="items">
-                        <p>Nuevo Atributo: <input type="text" name="atributo"/></p>
-                        <p>Nueva Descripción del alcance:<br/>
-                            <textarea name="descrip_alcance" rows="5" cols="50">Ingrese la descripción del alcance</textarea></p>
-                        </fieldset>   
-                        </div>                   
-                              
+                            <label for="departamento_nombre">Departamento:</label>
+                        </div>
+                        <div class="items">
+                            <input type="text" name="departamento_nombre" id="departamento_nombre" value="<?php echo $departamento["Nombre_Departamento"]?>" readonly>
+                        </div>
+                        <div class="items">
+                            <label for="departamento_id">Encargado:</label>
+                        </div>
+                        <div class="items">
+                            <input type="text" name="departamento_id" id="departamento_id" value="<?php echo $departamento["Encargado"]?>" readonly>
+                        </div> 
                         </br>
 
-                        <input type="submit" value="Modificar" class="submit">
-                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
+                        <div class="items">
+                            <label for="departamento_id_nuevo">Seleccione el nuevo encargado del departamento:</label>
                         </div>
+                        <div class="items">
+                            <select class="select-css" name="departamento_id_nuevo" id="departamento_id_nuevo">                                
+                                <?php
+
+                                    $sql2 = "SELECT * FROM ListarUsuarios";
+                                    $result2 = mysqli_query($con, $sql2);   
+                                    echo "<option selected disabled>Seleccionar</option>";
+                                    while ($row = mysqli_fetch_array($result2)) {
+                                        echo "<option value=\"".$row["idUsuario"]."\">".$row["Nombre"]."</option>";
+                                    }
+                                ?>
+                            </select>
+                        </div> 
+                        </br>
+
+                        <div class="items">
+                            <label for="departamento_nombre_nuevo">Nuevo nombre del departamento:</label>
+                        </div>                        
+                        <div class="items">
+                            <input type="text" name="departamento_nombre_nuevo" id="departamento_nombre_nuevo"/>
+                        </div> 
+                        </br>
+                        
+
+
+                        <input type="submit" value="Editar" class="submit">
+                        <input type="button" class="submit" onclick="location.href='departamentos.php' "value="Volver" /> 
 
                     </form>
-                </div>
+                </div>                
             </div>
 
         </div>

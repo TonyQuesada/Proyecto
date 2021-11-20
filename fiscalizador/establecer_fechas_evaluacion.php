@@ -1,8 +1,11 @@
 <?php
-session_start();
-if(!isset($_SESSION['u_ID'])){
-    header('Location: index.php');
-}
+
+include_once('../php_config.php');
+if(!isset($_SESSION['u_ID'])) 
+{ 
+    header('Location: ../index.php');
+} 
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +30,7 @@ if(!isset($_SESSION['u_ID'])){
                 </div>
             </div>
             <img class="logo" src="../favicon.png" width="67" height="62"> 
-            <a class="a" href="../index.php"><h2 class="h2">Sistema de Gestión de Control Interno</h2></a>
+            <a class="a" href="../index.php"><h2 class="h2">Sistema de Gestión de Control Interno | <?php echo $_SESSION['u_Rol'] ?> </h2></a>
         </div>
 
         <div class="container">            
@@ -51,8 +54,8 @@ if(!isset($_SESSION['u_ID'])){
                         </div>
                     </div>
                     </br><a class="a" href="./departamentos.php"> Departamentos</a>
-                    </br><a class="a" href="./direccciones.php"> Direccciones</a>
-                    </br><a class="a" href="./establecer_fechas_evaluacion.php" style="color: #031075; font-size: 16px; font-weight: bold;"> Establecer Fechas de Evaluación</a>
+                    </br><a class="a" href="./direcciones.php"> Direcciones</a>
+                    </br><a class="a" href="./establecer_fechas_evaluacion.php" style="color: #031075; font-size: 16px; font-weight: bold;">> Establecer Fechas de Evaluación</a>
                     </br><a class="a" href="./resultados.php"> Resultados</a>
                 <?php } ?>                        
                 

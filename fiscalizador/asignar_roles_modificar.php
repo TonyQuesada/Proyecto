@@ -6,6 +6,13 @@ if(!isset($_SESSION['u_ID']))
     header('Location: ../index.php');
 } 
 
+$id = $_GET["id"];
+$sql = "SELECT * FROM ListarRoles WHERE idRol=$id";
+$result = mysqli_query($con, $sql);
+if ($result) {
+    $rol = mysqli_fetch_assoc($result);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +22,7 @@ if(!isset($_SESSION['u_ID']))
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../favicon.ico">
         <link rel="stylesheet" href="../css/styles_general.css">
+        <link rel="stylesheet" href="../css/styles_roles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>        
     </head>
     <body>
@@ -30,28 +38,22 @@ if(!isset($_SESSION['u_ID']))
                 </div>
             </div>
             <img class="logo" src="../favicon.png" width="67" height="62"> 
-            <a class="a" href="../index.php"><h2 class="h2">Sistema de Gestión de Control Interno | <?php echo $_SESSION['u_Rol'] ?> </h2></a>
+            <a class="a" href="../index.php"><h2 class="h2">Sistema de Gestión de Control Interno | <?php echo $_SESSION['u_Rol'] ?></h2></a>
         </div>
 
         <div class="container">            
             <div class="columna_der">
                 <a class="a" href="../administrador.php">Inicio</a>
-                
+
                 <!-- Director de Área -->
-                <?php if ($_SESSION['u_idRol'] == 1){ ?>                
-                </br><div class="dropdown">
-                        <a class="a" onclick="myFunction()" style="color: #031075; font-size: 21px; font-weight: bold;">> Metas</a>
-                        <div id="myDropdown" class="dropdown-content">
-                            <a class="a" href="./metas1.php">Definir Metas</a>
-                            <a class="a" href="./metas2.php">Comunicar Definición</a>
-                        </div>
-                    </div>
+                <?php if ($_SESSION['u_idRol'] == 1){ ?>
+                    </br><a class="a" href="./metas.php"> Metas</a>
                     </br><a class="a"href="./resultados.php"> Resultados</a>
                 <?php } ?>
-
+                
                 <!-- Fiscalizador -->
                 <?php if ($_SESSION['u_idRol'] == 2){ ?>
-                    </br><a class="a" href="./asignar_roles.php"> Asignar Roles</a>
+                    </br><a class="a" href="./asignar_roles.php" style="color: #031075; font-size: 21px; font-weight: bold;"s>> Asignar Roles</a>
                     </br><div class="dropdown">
                         <a class="a" onclick="myFunction()">Alcance de Metas</a>
                         <div id="myDropdown" class="dropdown-content">
@@ -75,27 +77,40 @@ if(!isset($_SESSION['u_ID']))
             </div>
 
             <div class="panel">
-                <h2>Modificación de metas</h2>
-                <p>Seleccione el componente: <select name="id_componente">
-                <option>Ambiente de Control</option>
-                <option>Valoracion del riesgo</option>
-                <option>Actividades de control</option>
-                <option>Sistemas de informacion</option>
-                <option>Seguimiento</option>
-                </select></p>
 
-                <p>Seleccione la meta: <select name="id_meta">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                </select></p>    
-            <div class="items">
-                 <label>Meta:</label>
-                 <textarea name="descrip_meta" rows="5" cols="50" placeholder="Ingrese la nueva descripción de la meta..."></textarea>      
-            </div>    
-            <input type="submit" value="Modificar" class="submit">
-                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
+                <h2>Modificación de roles</h2>
+
+                <div class="contenido">
+                    
+                    <form method="post" action="../util/asignar_roles_modificar.php">
+
+                        <?php
+                            if (isset($_GET["id"])) {
+                                echo "<input type=\"hidden\" name=\"id\" value=\"".$_GET["id"]."\">";
+                            }
+                        ?>
+
+                        <div class="items">
+                            <label for="rol_nombre">Nombre del rol:</label>
+                        </div>
+                        <div class="items">
+                            <input type="text" name="rol_nombre" id="rol_nombre" value="<?php echo $rol["Nombre_Rol"]?>" readonly>
+                        </div>
+                        </br>
+
+                        <div class="items">
+                            <label for="rol_nombre_nuevo">Nuevo nombre del rol:</label>
+                        </div>             
+                        <div class="items">
+                            <input type="text" name="rol_nombre_nuevo" id="rol_nombre_nuevo"/>
+                        </div> 
+                        </br>
+                        
+                        <input type="submit" value="Editar" class="submit">
+                        <input type="button" class="submit" onclick="location.href='asignar_roles.php' "value="Volver" /> 
+
+                    </form>
+                </div>                
             </div>
 
         </div>

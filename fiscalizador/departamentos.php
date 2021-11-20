@@ -1,8 +1,11 @@
 <?php
-session_start();
-if(!isset($_SESSION['u_ID'])){
-    header('Location: index.php');
-}
+
+include_once('../php_config.php');
+if(!isset($_SESSION['u_ID'])) 
+{ 
+    header('Location: ../index.php');
+} 
+
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +15,8 @@ if(!isset($_SESSION['u_ID'])){
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../favicon.ico">
         <link rel="stylesheet" href="../css/styles_general.css">
+        <link rel="stylesheet" href="../css/styles_departamento.css">
+        <link rel="stylesheet" href="../icofont/icofont.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>        
     </head>
     <body>
@@ -27,7 +32,7 @@ if(!isset($_SESSION['u_ID'])){
                 </div>
             </div>
             <img class="logo" src="../favicon.png" width="67" height="62"> 
-            <a class="a" href="../index.php"><h2 class="h2">Sistema de Gestión de Control Interno</h2></a>
+            <a class="a" href="../index.php"><h2 class="h2">Sistema de Gestión de Control Interno | <?php echo $_SESSION['u_Rol'] ?> </h2></a>
         </div>
 
         <div class="container">            
@@ -50,8 +55,8 @@ if(!isset($_SESSION['u_ID'])){
                             <a class="a" href="./definir_alcance_metas2.php">Comunicar Apertura y Cierre del Proceso</a>
                         </div>
                     </div>
-                    </br><a class="a" href="./departamentos.php" style="color: #031075; font-size: 21px; font-weight: bold;"> Departamentos</a>
-                    </br><a class="a" href="./direccciones.php"> Direccciones</a>
+                    </br><a class="a" href="./departamentos.php" style="color: #031075; font-size: 21px; font-weight: bold;">> Departamentos</a>
+                    </br><a class="a" href="./direcciones.php"> Direcciones</a>
                     </br><a class="a" href="./establecer_fechas_evaluacion.php"> Establecer Fechas de Evaluación</a>
                     </br><a class="a" href="./resultados.php"> Resultados</a>
                 <?php } ?>                        
@@ -66,25 +71,59 @@ if(!isset($_SESSION['u_ID'])){
             </div>
 
             <div class="panel">
-                <h2>Ingreso de Departamentos</h2>
-                <p>Seleccione la dirección: <input type="text" name="nombre_direccion"/></p>
-                <p>Ingrese el nombre:    <input type="text" name="nombre_departamento"/></p>
-                <p>Ingrese el encargado: <input type="text" name="id_encargado"/></p>
-                <input type="submit" value="Guardar" class="submit">
-                <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" /> 
-            </div>
+                <h2>Departamentos</h2>
 
+                </br>
+                </br>
+                <div class="items">
+                    <input type="text" id="Buscar" placeholder="Buscar">
+                    <a class="a2" href="./departamentos_agregar.php"><i class="icofont-plus"></i> Agregar departamento</a>
+                </div>
+
+                <div class="items">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Departamento</th>
+                                <th>Encargado</th>
+                                <th>Dirección</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="Tabla">
+                            <?php
+                            $sql = "SELECT * FROM ListarDepartamentos";
+                            $result = mysqli_query($con, $sql);
+                            while($row = mysqli_fetch_assoc($result)) { 
+                                echo 
+                                "<tr>
+                                    <td>".$row["Nombre_Departamento"]."</td>
+                                    <td>".$row["Encargado"]."</td>
+                                    <td>".$row["Direccion"]."</td> 
+                                    <td>
+                                        <div style=\"text-align: center;\">
+                                            <a class=\"buttontable\" href=\"./departamentos_modificar.php?id=".$row["ID_Dpto"]."\"><i class=\"icofont-edit\"></i></a>
+                                            <a class=\"buttontable\" href=\"./departamentos_eliminar.php?id=".$row["ID_Dpto"]."\"><i class=\"icofont-ui-delete\"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div> 
+
+            </div>
         </div>
         <script src="./common.js"></script>
     </body>
+
+
     <script>
-        /* When the user clicks on the button, 
-        toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
 
-        // Close the dropdown if the user clicks outside of it
         window.onclick = function(event) {
         if (!event.target.matches('.a')) {
 
@@ -98,5 +137,21 @@ if(!isset($_SESSION['u_ID'])){
             }
         }
         }
+    </script>        
+
+    <!-- Para el filtro -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $("#Buscar").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#Tabla tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        });
     </script>
+    <!-- -------------- -->
+
+
 </html>
