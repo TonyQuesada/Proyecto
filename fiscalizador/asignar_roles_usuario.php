@@ -14,13 +14,15 @@ if(!isset($_SESSION['u_ID']))
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../favicon.ico">
-        <link rel="stylesheet" href="../css/styles_general.css">
+        <!-- <link rel="stylesheet" href="../css/styles_general.css"> -->
         <link rel="stylesheet" href="../css/styles_roles.css">
+        <link rel="stylesheet" href="../css/styles_usuarios.css">
+        <link rel="stylesheet" href="../icofont/icofont.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>        
     </head>
     <body>
 
-        <div class="cabecera">
+        <div class="cabecera gradient-border">
             <div class="perfil">
                 <div>
                     <a class="a" href="cuenta.php">👤 <?php echo $_SESSION['u_Nombre']; ?></a>
@@ -31,11 +33,11 @@ if(!isset($_SESSION['u_ID']))
                 </div>
             </div>
             <img class="logo" src="../favicon.png" width="67" height="62"> 
-            <a class="a" href="../index.php"><h2 class="h2">Sistema de Gestión de Control Interno | <?php echo $_SESSION['u_Rol'] ?></h2></a>
+            <a class="a" href="../index.php"><h2 class="h2">Sistema de Gestión de Control Interno | <?php echo $_SESSION['u_Rol'] ?> </h2></a>
         </div>
 
         <div class="container">            
-            <div class="columna_der">
+            <div class="columna_der" id="demo">
                 <a class="a" href="../administrador.php">Inicio</a>
 
                 <!-- Director de Área -->
@@ -71,68 +73,48 @@ if(!isset($_SESSION['u_ID']))
 
             <div class="panel">
                 <h2>Asignación de Roles</h2>
-                <div class="contenido">
-                    
-                    <form method="post" action="../administrador.php">
-                    <!-- <form method="post" action="../util/rol_crear.php"> -->
-                    <div class="items">
-                            <label for="roles_nombre">Seleccione nombre del funcionario:</label>  
-                        </div>                           
-                        <div class="items">
-                            <select class="select-css" name="roles_nombre" id="roles_nombre">                                
-                            <?php
-
-                                $sql2 = "SELECT * FROM ListarUsuarios";
-                                $result2 = mysqli_query($con, $sql2);   
-                                echo "<option selected disabled>Seleccionar</option>";
-                                while ($row = mysqli_fetch_array($result2)) {
-                                    echo "<option value=\"".$row["Nombre"]."\">".$row["Nombre"]."</option>";
-                                }
-                            ?>
-                            </select>
-                        </div>   
-                        </br>
-                        
-                        <div class="items">
-                            <label for="roles_direccion">Seleccionar la dirección:</label>   
-                        </div>                   
-                        <div class="items">
-                            <input type="text" id="roles_direccion" name="roles_direccion" value="">
-                        </div>         
-                        </br>
-
-                        <div class="items">
-                            <label for="roles_departamento">Seleccionar el departamento:</label>  
-                        </div>                    
-                        <div class="items">
-                            <input type="text" id="roles_departamento" name="roles_departamento" value="">
-                        </div>           
-                        </br>
-
-                        <div class="items">
-                            <label for="roles_rol">Seleccionar el rol:</label>  
-                        </div>                           
-                        <div class="items">
-                            <select class="select-css" name="roles_rol" id="roles_rol">                                
-                            <?php
-
-                                $sql2 = "SELECT * FROM ListarRoles";
-                                $result2 = mysqli_query($con, $sql2);   
-                                echo "<option selected disabled>Seleccionar</option>";
-                                while ($row = mysqli_fetch_array($result2)) {
-                                    echo "<option value=\"".$row["idRol"]."\">".$row["Nombre_Rol"]."</option>";
-                                }
-                            ?>
-                            </select>
-                        </div>   
-                        </br>
-                    
-                        <input type="submit" value="Asignar Rol" class="submit">
-                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
-
-                    </form>
+                
+                <div class="items">
+                    <input type="text" id="Buscar" placeholder="Buscar" style="margin-top: 30px;">
                 </div>
-            </div>
+
+                <div class="items">
+                    <table class="table">
+                        <thead class="thead">
+                            <tr class="tr">
+                                <th class="th">Empleado</th>
+                                <th class="th">Email</th>
+                                <th class="th">Rol</th>
+                                <th class="th">Subrol</th>
+                                <th class="th" style="text-align: center;">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody" id="Tabla">
+                            <?php
+                                $sql = "SELECT * FROM ListarUsuarios";
+                                $result = mysqli_query($con, $sql);
+                                while($row = mysqli_fetch_assoc($result)) { 
+                                    echo 
+                                    "<tr class=\"tr\">
+                                        <td class=\"td\">".$row["Nombre"]."</td>
+                                        <td class=\"td\">".$row["Email"]."</td>
+                                        <td class=\"td\">".$row["Rol"]."</td>
+                                        <td class=\"td\">".$row["Subrol"]."</td>
+                                        <td class=\"td\">
+                                            <div style=\"text-align: center;\">
+                                                <a class=\"buttontable\" href=\"./asignar_roles_usuario_asignar.php?id=".$row["idUsuario"]."\"><i class=\"icofont-edit\"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>";
+                                }
+                            ?>
+                        </tbody>
+                    </table>   
+
+                    <input type="button" class="submit" onclick="location.href='asignar_roles.php' "value="Volver" />
+
+                </div>                
+            </div>  
 
         </div>
         <script src="./common.js"></script>
@@ -158,5 +140,19 @@ if(!isset($_SESSION['u_ID']))
             }
         }
         }
+    </script>    
+    
+    <!-- Para el filtro -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $("#Buscar").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#Tabla tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        });
     </script>
+    <!-- -------------- -->
 </html>

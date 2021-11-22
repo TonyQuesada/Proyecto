@@ -20,8 +20,8 @@ if(isset($_SESSION['u_ID']))
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        
-        <div class="cabecera">
+
+        <div class="cabecera gradient-border">
             <img class="logo" src="./favicon.png" width="67" height="62"> 
             <a class="a" href="./index.php"><h2 class="h2">Sistema de Gestión de Control Interno</h2></a>
         </div>

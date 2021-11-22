@@ -36,19 +36,13 @@ if(!isset($_SESSION['u_ID']))
         <div class="container">            
             <div class="columna_der" id="demo">
                 <a class="a" href="../administrador.php">Inicio</a>
-                
+
                 <!-- Director de Área -->
-                <?php if ($_SESSION['u_idRol'] == 1){ ?>                
-                </br><div class="dropdown">
-                        <a class="a" onclick="myFunction()" style="color: #031075; font-size: 21px; font-weight: bold;">> Metas</a>
-                        <div id="myDropdown" class="dropdown-content">
-                            <a class="a" href="./metas1.php">Definir Metas</a>
-                            <a class="a" href="./metas2.php">Comunicar Definición</a>
-                        </div>
-                    </div>
+                <?php if ($_SESSION['u_idRol'] == 1){ ?>
+                    </br><a class="a" href="./metas.php"> Metas</a>
                     </br><a class="a"href="./resultados.php"> Resultados</a>
                 <?php } ?>
-
+                
                 <!-- Fiscalizador -->
                 <?php if ($_SESSION['u_idRol'] == 2){ ?>
                     </br><a class="a" href="./asignar_roles.php"> Asignar Roles</a>
@@ -61,7 +55,7 @@ if(!isset($_SESSION['u_ID']))
                     </div>
                     </br><a class="a" href="./departamentos.php"> Departamentos</a>
                     </br><a class="a" href="./direcciones.php"> Direcciones</a>
-                    </br><a class="a" href="./establecer_fechas_evaluacion.php"> Establecer Fechas de Evaluación</a>
+                    </br><a class="a" href="./establecer_fechas_evaluacion.php" style="color: #031075; font-size: 16px; font-weight: bold;">> Establecer Fechas de Evaluación</a>
                     </br><a class="a" href="./resultados.php"> Resultados</a>
                 <?php } ?>                        
                 
@@ -73,29 +67,52 @@ if(!isset($_SESSION['u_ID']))
                 <?php if ($_SESSION['u_idRol'] == 4){ ?>
                 <?php } ?>                
             </div>
-
+            
             <div class="panel">
-                <h2>Modificación de metas</h2>
-                <p>Seleccione el componente: <select name="id_componente">
-                <option>Ambiente de Control</option>
-                <option>Valoracion del riesgo</option>
-                <option>Actividades de control</option>
-                <option>Sistemas de informacion</option>
-                <option>Seguimiento</option>
-                </select></p>
+                <h2>Establecimiento de fechas</h2>
 
-                <p>Seleccione la meta: <select name="id_meta">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                </select></p>    
-            <div class="items">
-                 <label>Meta:</label>
-                 <textarea name="descrip_meta" rows="5" cols="50" placeholder="Ingrese la nueva descripción de la meta..."></textarea>      
-            </div>    
-            <input type="submit" value="Modificar" class="submit">
-                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
+                <div class="contenido">
+                    
+                    <form method="post" action="../util/establecer_fecha_evaluacion_agregar.php">
+
+                        <div class="items">
+                            <label for="fecha_componente">Seleccione el componente:</label>
+                        </div>
+
+                        <div class="items">
+                            <select class="select-css" name="fecha_componente" id="fecha_componente">                                
+                                <?php
+
+                                    $sql2 = "SELECT * FROM Listar_Componente";
+                                    $result2 = mysqli_query($con, $sql2);   
+                                    echo "<option selected disabled>Seleccionar</option>";
+                                    while ($row = mysqli_fetch_array($result2)) {
+                                        echo "<option value=\"".$row["idComponente"]."\">".$row["Componente"]."</option>";
+                                    }
+                                ?>
+                            </select>
+                        </div> 
+                        </br>
+
+                        <div class="items">
+                            <label for="fecha_apertura">Fecha de apertura:</label>
+                        </div>
+                        <div class="items">
+                            <input id="fecha_apertura" name="fecha_apertura" type="date">
+                        </div>
+                        <div class="items">
+                            <label for="fecha_cierre">Fecha de cierre:</label>
+                        </div>
+                        <div class="items">
+                            <input id="fecha_cierre" name="fecha_cierre" type="date">
+                        </div>
+                        </br>
+
+                        <input type="submit" value="Establecer" class="submit">
+                        <input type="button" class="submit" onclick="location.href='establecer_fechas_evaluacion.php' "value="Volver" /> 
+
+                    </form>
+                </div>                
             </div>
 
         </div>

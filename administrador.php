@@ -21,7 +21,7 @@
     </head>
     <body>
 
-        <div class="cabecera">
+        <div class="cabecera gradient-border">
             <div class="perfil">
                 <div>
                     <a class="a" href="cuenta.php">👤 <?php echo $_SESSION['u_Nombre']; ?></a>
@@ -36,7 +36,7 @@
         </div>
 
         <div class="container">            
-            <div class="columna_der">
+            <div class="columna_der" id="demo">
                 <a class="a" href="administrador.php" style="color: #031075; font-size: 21px; font-weight: bold;">> Inicio</a>
 
                 <!-- Director de Área -->
@@ -115,13 +115,11 @@
     </script>
     
     <script>
-        /* When the user clicks on the button, 
-        toggle between hiding and showing the dropdown content */
+
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
 
-        // Close the dropdown if the user clicks outside of it
         window.onclick = function(event) {
         if (!event.target.matches('.a')) {
 

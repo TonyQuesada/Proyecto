@@ -36,19 +36,13 @@ if(!isset($_SESSION['u_ID']))
         <div class="container">            
             <div class="columna_der" id="demo">
                 <a class="a" href="../administrador.php">Inicio</a>
-                
+
                 <!-- Director de Área -->
-                <?php if ($_SESSION['u_idRol'] == 1){ ?>                
-                </br><div class="dropdown">
-                        <a class="a" onclick="myFunction()" style="color: #031075; font-size: 21px; font-weight: bold;">> Metas</a>
-                        <div id="myDropdown" class="dropdown-content">
-                            <a class="a" href="./metas1.php">Definir Metas</a>
-                            <a class="a" href="./metas2.php">Comunicar Definición</a>
-                        </div>
-                    </div>
+                <?php if ($_SESSION['u_idRol'] == 1){ ?>
+                    </br><a class="a" href="./metas.php"> Metas</a>
                     </br><a class="a"href="./resultados.php"> Resultados</a>
                 <?php } ?>
-
+                
                 <!-- Fiscalizador -->
                 <?php if ($_SESSION['u_idRol'] == 2){ ?>
                     </br><a class="a" href="./asignar_roles.php"> Asignar Roles</a>
@@ -61,7 +55,7 @@ if(!isset($_SESSION['u_ID']))
                     </div>
                     </br><a class="a" href="./departamentos.php"> Departamentos</a>
                     </br><a class="a" href="./direcciones.php"> Direcciones</a>
-                    </br><a class="a" href="./establecer_fechas_evaluacion.php"> Establecer Fechas de Evaluación</a>
+                    </br><a class="a" href="./establecer_fechas_evaluacion.php" style="color: #031075; font-size: 16px; font-weight: bold;">> Establecer Fechas de Evaluación</a>
                     </br><a class="a" href="./resultados.php"> Resultados</a>
                 <?php } ?>                        
                 
@@ -75,7 +69,8 @@ if(!isset($_SESSION['u_ID']))
             </div>
 
             <div class="panel">
-                <h2>Modificación de metas</h2>
+                <h2>Establecimiento de fechas</h2>
+                <legend>Ingrese las fechas de apertura y cierre de los componentes</legend>
                 <p>Seleccione el componente: <select name="id_componente">
                 <option>Ambiente de Control</option>
                 <option>Valoracion del riesgo</option>
@@ -83,21 +78,12 @@ if(!isset($_SESSION['u_ID']))
                 <option>Sistemas de informacion</option>
                 <option>Seguimiento</option>
                 </select></p>
-
-                <p>Seleccione la meta: <select name="id_meta">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                </select></p>    
-            <div class="items">
-                 <label>Meta:</label>
-                 <textarea name="descrip_meta" rows="5" cols="50" placeholder="Ingrese la nueva descripción de la meta..."></textarea>      
-            </div>    
-            <input type="submit" value="Modificar" class="submit">
-                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
+                <p>Fecha de apertura: <input id="fecha_apertura" type="date"></p>
+                <p>Fecha de cierre: <input id="fecha_cierre" type="date"></p>
+                <input type="submit" value="Establecer" class="submit">
+                <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
             </div>
-
+                  
         </div>
         <script src="./common.js"></script>
     </body>

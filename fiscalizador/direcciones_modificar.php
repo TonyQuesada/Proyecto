@@ -26,7 +26,7 @@ if ($result) {
     </head>
     <body>
 
-        <div class="cabecera">
+        <div class="cabecera gradient-border">
             <div class="perfil">
                 <div>
                     <a class="a" href="cuenta.php">👤 <?php echo $_SESSION['u_Nombre']; ?></a>
@@ -41,7 +41,7 @@ if ($result) {
         </div>
 
         <div class="container">            
-            <div class="columna_der">
+            <div class="columna_der" id="demo">
                 <a class="a" href="../administrador.php">Inicio</a>
 
                 <!-- Director de Área -->

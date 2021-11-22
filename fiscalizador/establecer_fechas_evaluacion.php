@@ -15,11 +15,13 @@ if(!isset($_SESSION['u_ID']))
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../favicon.ico">
         <link rel="stylesheet" href="../css/styles_general.css">
+        <link rel="stylesheet" href="../css/styles_departamento.css">
+        <link rel="stylesheet" href="../icofont/icofont.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>        
     </head>
     <body>
 
-        <div class="cabecera">
+        <div class="cabecera gradient-border">
             <div class="perfil">
                 <div>
                     <a class="a" href="cuenta.php">👤 <?php echo $_SESSION['u_Nombre']; ?></a>
@@ -34,7 +36,7 @@ if(!isset($_SESSION['u_ID']))
         </div>
 
         <div class="container">            
-            <div class="columna_der">
+            <div class="columna_der" id="demo">
                 <a class="a" href="../administrador.php">Inicio</a>
 
                 <!-- Director de Área -->
@@ -69,19 +71,48 @@ if(!isset($_SESSION['u_ID']))
             </div>
 
             <div class="panel">
-                <h2>Establecimiento de fechas</h2>
-                <legend>Ingrese las fechas de apertura y cierre de los componentes</legend>
-                <p>Seleccione el componente: <select name="id_componente">
-                <option>Ambiente de Control</option>
-                <option>Valoracion del riesgo</option>
-                <option>Actividades de control</option>
-                <option>Sistemas de informacion</option>
-                <option>Seguimiento</option>
-                </select></p>
-                <p>Fecha de apertura: <input id="fecha_apertura" type="date"></p>
-                <p>Fecha de cierre: <input id="fecha_cierre" type="date"></p>
-                <input type="submit" value="Establecer" class="submit">
-                <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
+                <h2>Fechas de Evaluación</h2>
+
+                </br>
+                </br>
+                <div class="items">
+                    <input type="text" id="Buscar" placeholder="Buscar">
+                    <a class="a2" href="./establecer_fecha_evaluacion_agregar.php"><i class="icofont-plus"></i> Establecer fecha de evaluación</a>
+                </div>
+
+                <div class="items">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">Componente</th>
+                                <th style="text-align: center;">Fecha de Apertura</th>
+                                <th style="text-align: center;">Fecha de Cierre</th>
+                                <th style="text-align: center;">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="Tabla">
+                            <?php
+                            $sql = "SELECT * FROM ListarFechas ORDER BY ListarFechas.idComponente ASC";
+                            $result = mysqli_query($con, $sql);
+                            while($row = mysqli_fetch_assoc($result)) { 
+                                echo 
+                                "<tr>
+                                    <td>".$row["Componente"]."</td>
+                                    <td style=\"text-align: center;\">".$row["Fecha_Apertura_Componentes"]."</td>
+                                    <td style=\"text-align: center;\">".$row["Fecha_Cierre_Componentes"]."</td>";
+
+                                    if($row["Estado"] == 1){
+                                        echo "<td style=\"text-align: center;\">Activo</td>";
+                                    }else{
+                                        echo "<td style=\"text-align: center;\">Inactivo</td>";
+                                    }
+                                    echo"</tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div> 
+
             </div>
                   
         </div>
@@ -108,5 +139,19 @@ if(!isset($_SESSION['u_ID']))
             }
         }
         }
+    </script>        
+
+    <!-- Para el filtro -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $("#Buscar").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#Tabla tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        });
     </script>
+    <!-- -------------- -->
 </html>

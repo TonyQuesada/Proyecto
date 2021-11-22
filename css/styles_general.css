@@ -1,10 +1,61 @@
 body{
-  background: linear-gradient(120deg, #36d1dc, #5b86e5) fixed;
+  /* background: linear-gradient(120deg, #36d1dc, #5b86e5) fixed; */
+  background-color:#5b86e5;
   height: 1000px;
 }
 
+
+@keyframes morph {
+  50% { background-color: #586bff; }
+  50% { background-color: #495efb; }
+  50% { background-color: #3f55fb; }
+  50% { background-color: #3950fd; }
+  
+  50% { border: solid 1px #3e7af1; }
+
+  /* 0% { background-color: #5780da; }
+  33% { background-color: #5b86e5; }
+  66% { background-color: #5780da; }
+  100% { background-color: #5b86e5; } */
+}
+ 
+#demo {
+  animation: morph 3s infinite;
+}
+
+
+@import url("https://fonts.googleapis.com/css?family=Lato:300");
+
+ .gradient-border {
+	 --border-width: 2px;
+	 border-radius: var(--border-width);
+}
+ .gradient-border::after {
+	 position: absolute;
+	 content: "";
+	 top: calc(-1 * var(--border-width));
+	 left: calc(-1 * var(--border-width));
+	 z-index: -1;
+	 width: calc(100% + var(--border-width) * 2);
+	 height: calc(100% + var(--border-width) * 2);
+	 background: linear-gradient(60deg, #050f5a, #061480, #366bdf, #37dde9);
+	 background-size: 120% 120%;
+	 border-radius: calc(2 * var(--border-width));
+	 animation: moveGradient 4s alternate infinite;
+   
+   border: 1px solid rgb(152, 204, 255);
+   border-radius: 5px;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+}
+ @keyframes moveGradient {
+	 50% {
+		 background-position: 100% 50%;
+	}
+}
+ 
+
 .cabecera{
-  background-color: #050f5a;
+  background: linear-gradient(120deg, #050f5a, #162bc6) fixed;
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;

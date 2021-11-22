@@ -27,7 +27,7 @@ if ($result) {
     </head>
     <body>
 
-        <div class="cabecera">
+        <div class="cabecera gradient-border">
             <div class="perfil">
                 <div>
                     <a class="a" href="cuenta.php">👤 <?php echo $_SESSION['u_Nombre']; ?></a>
@@ -38,11 +38,11 @@ if ($result) {
                 </div>
             </div>
             <img class="logo" src="../favicon.png" width="67" height="62"> 
-            <a class="a" href="../index.php"><h2 class="h2">Sistema de Gestión de Control Interno | <?php echo $_SESSION['u_Rol'] ?></h2></a>
+            <a class="a" href="../index.php"><h2 class="h2">Sistema de Gestión de Control Interno | <?php echo $_SESSION['u_Rol'] ?> </h2></a>
         </div>
 
         <div class="container">            
-            <div class="columna_der">
+            <div class="columna_der" id="demo">
                 <a class="a" href="../administrador.php">Inicio</a>
 
                 <!-- Director de Área -->
@@ -78,7 +78,7 @@ if ($result) {
 
             <div class="panel">
 
-                <h2>Modificación de roles</h2>
+                <h2 style="color: yellow;">Modificación de roles</h2>
 
                 <div class="contenido">
                     

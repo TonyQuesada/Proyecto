@@ -6,6 +6,13 @@ if(!isset($_SESSION['u_ID']))
     header('Location: ../index.php');
 } 
 
+$id = $_GET["id"];
+$sql = "SELECT * FROM ListarUsuarios WHERE idUsuario=$id";
+$result = mysqli_query($con, $sql);
+if ($result) {
+    $usuarios = mysqli_fetch_assoc($result);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +21,10 @@ if(!isset($_SESSION['u_ID']))
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../favicon.ico">
-        <link rel="stylesheet" href="../css/styles_general.css">
+        <!-- <link rel="stylesheet" href="../css/styles_general.css"> -->
+        <link rel="stylesheet" href="../css/styles_roles.css">
+        <link rel="stylesheet" href="../css/styles_usuarios.css">
+        <link rel="stylesheet" href="../icofont/icofont.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>        
     </head>
     <body>
@@ -36,22 +46,16 @@ if(!isset($_SESSION['u_ID']))
         <div class="container">            
             <div class="columna_der" id="demo">
                 <a class="a" href="../administrador.php">Inicio</a>
-                
+
                 <!-- Director de Área -->
-                <?php if ($_SESSION['u_idRol'] == 1){ ?>                
-                </br><div class="dropdown">
-                        <a class="a" onclick="myFunction()" style="color: #031075; font-size: 21px; font-weight: bold;">> Metas</a>
-                        <div id="myDropdown" class="dropdown-content">
-                            <a class="a" href="./metas1.php">Definir Metas</a>
-                            <a class="a" href="./metas2.php">Comunicar Definición</a>
-                        </div>
-                    </div>
+                <?php if ($_SESSION['u_idRol'] == 1){ ?>
+                    </br><a class="a" href="./metas.php"> Metas</a>
                     </br><a class="a"href="./resultados.php"> Resultados</a>
                 <?php } ?>
-
+                
                 <!-- Fiscalizador -->
                 <?php if ($_SESSION['u_idRol'] == 2){ ?>
-                    </br><a class="a" href="./asignar_roles.php"> Asignar Roles</a>
+                    </br><a class="a" href="./asignar_roles.php" style="color: #031075; font-size: 21px; font-weight: bold;"s>> Asignar Roles</a>
                     </br><div class="dropdown">
                         <a class="a" onclick="myFunction()">Alcance de Metas</a>
                         <div id="myDropdown" class="dropdown-content">
@@ -75,40 +79,61 @@ if(!isset($_SESSION['u_ID']))
             </div>
 
             <div class="panel">
-                <h2>Modificación de metas</h2>
-                <p>Seleccione el componente: <select name="id_componente">
-                <option>Ambiente de Control</option>
-                <option>Valoracion del riesgo</option>
-                <option>Actividades de control</option>
-                <option>Sistemas de informacion</option>
-                <option>Seguimiento</option>
-                </select></p>
+                <h2>Modificación de rol de usuario</h2>
+                </br>
 
-                <p>Seleccione la meta: <select name="id_meta">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                </select></p>    
-            <div class="items">
-                 <label>Meta:</label>
-                 <textarea name="descrip_meta" rows="5" cols="50" placeholder="Ingrese la nueva descripción de la meta..."></textarea>      
-            </div>    
-            <input type="submit" value="Modificar" class="submit">
-                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
+                <div class="contenido">
+                    
+                    <form method="post" action="../util/asignar_roles_usuario_asignar.php">
+
+                        <?php
+                            if (isset($_GET["id"])) {
+                                echo "<input type=\"hidden\" name=\"id\" value=\"".$_GET["id"]."\">";
+                            }
+                        ?>                        
+                        
+                        <div class="items">
+                            <label for="user-rol">Rol Principal:</label>
+                        </div>
+                        <div class="items">
+                            <select class="combobox" name="user-rol" id="user-rol" required>
+                            <?php
+
+                                $sql2 = "SELECT * FROM ListarRoles";
+                                $result2 = mysqli_query($con, $sql2); 
+
+                                if ($usuarios["Rol"] == NULL) { 
+                                    echo "<option selected disabled> Seleccionar </option>";                                
+                                } else {
+                                    echo "<option selected disabled> ".$usuarios["Rol"]." </option>";
+                                }
+
+                                while ($row = mysqli_fetch_array($result2)) {
+                                    echo "<option value=\"".$row["idRol"]."\">".$row["Nombre_Rol"]."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div> 
+                        </br>
+                        </br>
+
+                        <input type="submit" value="Editar" class="submit">
+                        <input type="button" class="submit" onclick="location.href='asignar_roles_usuario.php' "value="Volver" /> 
+
+                    </form>
+                </div>
+
             </div>
 
         </div>
         <script src="./common.js"></script>
     </body>
     <script>
-        /* When the user clicks on the button, 
-        toggle between hiding and showing the dropdown content */
+
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
 
-        // Close the dropdown if the user clicks outside of it
         window.onclick = function(event) {
         if (!event.target.matches('.a')) {
 
@@ -122,5 +147,6 @@ if(!isset($_SESSION['u_ID']))
             }
         }
         }
-    </script>
+    </script>    
+    
 </html>

@@ -15,7 +15,7 @@
     </head>
     <body>
         
-        <div class="cabecera">
+        <div class="cabecera gradient-border">
             <img class="logo" src="./favicon.png" width="67" height="62"> 
             <a class="a" href="./index.php"><h2 class="h2">Sistema de Gestión de Control Interno</h2></a>
         </div>
@@ -33,9 +33,6 @@
 
             <div>
                 <div>
-
-
-
                     <div class="register">
                         <div class="form">
                             <h2>Registrarse</h2>
@@ -44,41 +41,13 @@
                                 <input type="text" id="user-nombre" name="user-nombre" placeholder="Nombre Completo" required>
                                 <input type="email" id="user-correo" name="user-correo" placeholder="Correo Electrónico" required>
                                 <input type="password" id="user-contrasena" name="user-contrasena" placeholder="Contraseña" required>                        
-                                <div class="items">
-                                    <select class="combobox" name="user-rol" id="user-rol" required>
-                                        <?php
-
-                                            $sql2 = "SELECT * FROM ListarRoles";
-                                            $result2 = mysqli_query($con, $sql2);   
-                                            echo "<option selected disabled>Seleccionar</option>";
-                                            while ($row = mysqli_fetch_array($result2)) {
-                                                echo "<option value=\"".$row["idRol"]."\">".$row["Nombre_Rol"]."</option>";
-                                            }
-                                        ?>
-                                    </select>
-                                </div>                                 
-                                <div class="items">
-                                    <select class="combobox" name="user-direccion" id="user-direccion" required>
-                                        <?php
-
-                                            $sql3 = "SELECT * FROM ListarDirecciones";
-                                            $result3 = mysqli_query($con, $sql3);   
-                                            echo "<option selected disabled>Seleccionar</option>";
-                                            while ($row = mysqli_fetch_array($result3)) {
-                                                echo "<option value=\"".$row["ID"]."\">".$row["Direccion"]."</option>";
-                                            }
-                                        ?>
-                                    </select>
-                                </div> 
-
                                 <input type="submit" name="Register" value="Registrarse" class="submit" >
                                 <div class="div_a">
                                     <a class="a" href="./index.php"> Ingresar</a>
                                 </div>
                             </form>
                         </div>
-                    </div>
-                    
+                    </div>                
                 </div>
             </div>
         </div>
