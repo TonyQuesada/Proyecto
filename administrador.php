@@ -44,8 +44,8 @@
                 </br><div class="dropdown">
                         <a class="a" onclick="myFunction()">Metas</a>
                         <div id="myDropdown" class="dropdown-content">
-                            <a class="a" href="./director_area/metas1.php">Definir Metas</a>
-                            <a class="a" href="./director_area/metas2.php">Comunicar Definición</a>
+                            <a class="a" href="./director_area/metas.php">Definir Metas</a>
+                            <a class="a" href="./director_area/metas_seccion.php">Comunicar Definición</a>
                         </div>
                     </div>
                     </br><a class="a"href="./director_area/resultados.php"> Resultados</a>

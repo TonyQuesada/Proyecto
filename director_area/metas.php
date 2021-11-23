@@ -15,6 +15,8 @@ if(!isset($_SESSION['u_ID']))
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../favicon.ico">
         <link rel="stylesheet" href="../css/styles_general.css">
+        <link rel="stylesheet" href="../css/styles_departamento.css">
+        <link rel="stylesheet" href="../icofont/icofont.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>        
     </head>
     <body>
@@ -42,8 +44,8 @@ if(!isset($_SESSION['u_ID']))
                 </br><div class="dropdown">
                         <a class="a" onclick="myFunction()" style="color: #031075; font-size: 21px; font-weight: bold;">> Metas</a>
                         <div id="myDropdown" class="dropdown-content">
-                            <a class="a" href="./metas1.php">Definir Metas</a>
-                            <a class="a" href="./metas2.php">Comunicar Definición</a>
+                            <a class="a" href="./metas.php">Definir Metas</a>
+                            <a class="a" href="./metas_seccion.php">Comunicar Definición</a>
                         </div>
                     </div>
                     </br><a class="a"href="./resultados.php"> Resultados</a>
@@ -75,27 +77,53 @@ if(!isset($_SESSION['u_ID']))
             </div>
 
             <div class="panel">
-                <h2>Modificación de metas</h2>
-                <p>Seleccione el componente: <select name="id_componente">
-                <option>Ambiente de Control</option>
-                <option>Valoracion del riesgo</option>
-                <option>Actividades de control</option>
-                <option>Sistemas de informacion</option>
-                <option>Seguimiento</option>
-                </select></p>
+                <h2>Metas</h2>
 
-                <p>Seleccione la meta: <select name="id_meta">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                </select></p>    
-            <div class="items">
-                 <label>Meta:</label>
-                 <textarea name="descrip_meta" rows="5" cols="50" placeholder="Ingrese la nueva descripción de la meta..."></textarea>      
-            </div>    
-            <input type="submit" value="Modificar" class="submit">
-                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
+                </br>
+                <div class="items">
+                    <input type="text" id="Buscar" placeholder="Buscar">
+                    <a class="a2" href="./metas_agregar.php"><i class="icofont-plus"></i> Agregar meta</a>
+                </div>
+
+                <div class="items">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Componente</th>
+                                <th>Descripción</th>
+                                <th>Fecha de Apertura</th>
+                                <th>Fecha de Cierre</th>
+                                <th style="text-align: center;">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="Tabla">
+                            <?php
+                            $sql = "SELECT * FROM Listar_Metas";
+                            $result = mysqli_query($con, $sql);
+                            while($row = mysqli_fetch_assoc($result)) { 
+                                echo 
+                                "<tr>
+                                    <td>".$row["Componente"]."</td>";                                    
+                                    $descripcion = $row["Descripcion"];
+                                    $caracteres = 22;
+                                echo
+                                    "<td>"; echo substr($descripcion, 0, $caracteres).'...'; echo "</td>
+                                    <td>".$row["Fecha_De_Apertura"]."</td>
+                                    <td>".$row["Fecha_De_Cierre"]."</td>
+                                    <td>
+                                        <div style=\"text-align: center;\">
+                                            <a class=\"buttontable\" href=\"./metas_detalle.php?id=".$row["ID"]."\"><i class=\"icofont-search-document\"></i></a>
+                                            <a class=\"buttontable\" href=\"./metas_modificar.php?id=".$row["ID"]."\"><i class=\"icofont-edit\"></i></a>
+                                            <a class=\"buttontable\" href=\"./metas_eliminar.php?id=".$row["ID"]."\"><i class=\"icofont-ui-delete\"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div> 
+
             </div>
 
         </div>
@@ -122,5 +150,20 @@ if(!isset($_SESSION['u_ID']))
             }
         }
         }
+    </script>    
+
+    <!-- Para el filtro -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $("#Buscar").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#Tabla tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        });
     </script>
+    <!-- -------------- -->
+    
 </html>

@@ -6,6 +6,8 @@ if(!isset($_SESSION['u_ID']))
     header('Location: ../index.php');
 } 
 
+$alcance_descripcion = $_POST['alcance_descripcion_propia'];
+
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +17,8 @@ if(!isset($_SESSION['u_ID']))
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../favicon.ico">
         <link rel="stylesheet" href="../css/styles_general.css">
+        <link rel="stylesheet" href="../css/styles_departamento.css">
+        <link rel="stylesheet" href="../icofont/icofont.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>        
     </head>
     <body>
@@ -38,22 +42,16 @@ if(!isset($_SESSION['u_ID']))
                 <a class="a" href="../administrador.php">Inicio</a>
 
                 <!-- Director de Área -->
-                <?php if ($_SESSION['u_idRol'] == 1){ ?>                
-                </br><div class="dropdown">
-                        <a class="a" onclick="myFunction()">Metas</a>
-                        <div id="myDropdown" class="dropdown-content">
-                            <a class="a" href="./metas.php">Definir Metas</a>
-                            <a class="a" href="./metas_seccion.php">Comunicar Definición</a>
-                        </div>
-                    </div>
-                    </br><a class="a"href="./resultados.php" style="color: #031075; font-size: 21px; font-weight: bold;">> Resultados</a>
+                <?php if ($_SESSION['u_idRol'] == 1){ ?>
+                    </br><a class="a" href="./metas.php"> Metas</a>
+                    </br><a class="a"href="./resultados.php"> Resultados</a>
                 <?php } ?>
                 
                 <!-- Fiscalizador -->
                 <?php if ($_SESSION['u_idRol'] == 2){ ?>
                     </br><a class="a" href="./asignar_roles.php"> Asignar Roles</a>
                     </br><div class="dropdown">
-                        <a class="a" onclick="myFunction()">Alcance de Metas</a>
+                        <a class="a" onclick="myFunction()" style="color: #031075; font-size: 21px; font-weight: bold;">> Alcance de Metas</a>
                         <div id="myDropdown" class="dropdown-content">
                             <a class="a" href="./definir_alcance_metas1.php">Definir Alcances</a>
                             <a class="a" href="./definir_alcance_metas2.php">Comunicar Apertura y Cierre del Proceso</a>
@@ -75,7 +73,28 @@ if(!isset($_SESSION['u_ID']))
             </div>
 
             <div class="panel">
-                <h2>Panel central</h2>
+                <h2>Definir Alcances</h2>   
+
+                <div class="contenido">
+
+                    <form method="post" action="../util/definir_alcance_agregar.php">
+
+                        <?php
+                            echo "<input type=\"hidden\" name=\"id\" value=\"".$_POST['id']."\">";
+                            echo "<input type=\"hidden\" name=\"alcance_descripcion_propia\" value=\"".$_POST['alcance_descripcion_propia']."\">";
+                        ?>
+
+                        <div class="items">
+                            <label for="alcance_atributo">Atributo:</label>
+                            <input type="text" name="alcance_atributo" id="alcance_atributo" value=""/>
+                        </div>
+                        </br>
+
+                        <input type="submit" value="Agregar" class="submit">
+                        <input type="button" class="submit" onclick="location.href='definir_alcance_metas_agregar2.php' "value="Volver" />
+
+                    </form>
+                </div>
             </div>
 
         </div>

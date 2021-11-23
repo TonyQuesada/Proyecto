@@ -38,22 +38,16 @@ if(!isset($_SESSION['u_ID']))
                 <a class="a" href="../administrador.php">Inicio</a>
 
                 <!-- Director de Área -->
-                <?php if ($_SESSION['u_idRol'] == 1){ ?>                
-                </br><div class="dropdown">
-                        <a class="a" onclick="myFunction()">Metas</a>
-                        <div id="myDropdown" class="dropdown-content">
-                            <a class="a" href="./metas.php">Definir Metas</a>
-                            <a class="a" href="./metas_seccion.php">Comunicar Definición</a>
-                        </div>
-                    </div>
-                    </br><a class="a"href="./resultados.php" style="color: #031075; font-size: 21px; font-weight: bold;">> Resultados</a>
+                <?php if ($_SESSION['u_idRol'] == 1){ ?>
+                    </br><a class="a" href="./metas.php"> Metas</a>
+                    </br><a class="a"href="./resultados.php"> Resultados</a>
                 <?php } ?>
                 
                 <!-- Fiscalizador -->
                 <?php if ($_SESSION['u_idRol'] == 2){ ?>
                     </br><a class="a" href="./asignar_roles.php"> Asignar Roles</a>
                     </br><div class="dropdown">
-                        <a class="a" onclick="myFunction()">Alcance de Metas</a>
+                        <a class="a" onclick="myFunction()" style="color: #031075; font-size: 21px; font-weight: bold;">> Alcance de Metas</a>
                         <div id="myDropdown" class="dropdown-content">
                             <a class="a" href="./definir_alcance_metas1.php">Definir Alcances</a>
                             <a class="a" href="./definir_alcance_metas2.php">Comunicar Apertura y Cierre del Proceso</a>
@@ -75,7 +69,37 @@ if(!isset($_SESSION['u_ID']))
             </div>
 
             <div class="panel">
-                <h2>Panel central</h2>
+                <h2>Definir Alcances</h2>
+                </br>
+
+                <div class="contenido">
+
+                    <form method="post" action="definir_alcance_metas_agregar2.php">                        
+
+                    
+                        <div class="items">
+                            <label for="alcance_componente">Seleccionar un componente:</label>
+                        </div></br>
+                        <div class="items">
+                            <select class="select-css" name="alcance_componente" id="alcance_componente">
+                                <?php
+
+                                    $sql2 = "SELECT * FROM Listar_Metas";
+                                    $result2 = mysqli_query($con, $sql2);   
+                                    echo "<option selected disabled>Seleccionar</option>";
+                                    while ($row = mysqli_fetch_array($result2)) {
+                                        echo "<option value=\"".$row["ID"]."\">".$row["Componente"]."</option>";
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        </br></br>
+
+                        <input type="submit" value="Siguiente" class="submit">                                      
+                        <input type="button" class="submit" onclick="location.href='../definir_alcance_metas1.php' "value="Volver" />
+
+                    </form>
+                </div>
             </div>
 
         </div>

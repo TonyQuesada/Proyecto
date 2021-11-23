@@ -6,6 +6,13 @@ if(!isset($_SESSION['u_ID']))
     header('Location: ../index.php');
 } 
 
+$id = $_GET["id"];
+$sql = "SELECT * FROM Listar_Metas WHERE ID=$id";
+$result = mysqli_query($con, $sql);
+if ($result) {
+    $metas = mysqli_fetch_assoc($result);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -40,13 +47,13 @@ if(!isset($_SESSION['u_ID']))
                 <!-- Director de Área -->
                 <?php if ($_SESSION['u_idRol'] == 1){ ?>                
                 </br><div class="dropdown">
-                        <a class="a" onclick="myFunction()">Metas</a>
+                        <a class="a" onclick="myFunction()" style="color: #031075; font-size: 21px; font-weight: bold;">> Metas</a>
                         <div id="myDropdown" class="dropdown-content">
                             <a class="a" href="./metas.php">Definir Metas</a>
                             <a class="a" href="./metas_seccion.php">Comunicar Definición</a>
                         </div>
                     </div>
-                    </br><a class="a"href="./resultados.php" style="color: #031075; font-size: 21px; font-weight: bold;">> Resultados</a>
+                    </br><a class="a"href="./resultados.php"> Resultados</a>
                 <?php } ?>
                 
                 <!-- Fiscalizador -->
@@ -73,9 +80,44 @@ if(!isset($_SESSION['u_ID']))
                 <?php if ($_SESSION['u_idRol'] == 4){ ?>
                 <?php } ?>                
             </div>
-
+            
             <div class="panel">
-                <h2>Panel central</h2>
+                <h2>Eliminación de metas</h2>
+
+                <div class="contenido" style="padding-bottom: 55px;">
+                    
+                    <form method="post" action="../util/metas_eliminar.php">
+
+                        <?php
+                            if (isset($_GET["id"])) {
+                                echo "<input type=\"hidden\" name=\"id\" value=\"".$_GET["id"]."\">";
+                            }
+                        ?>
+
+                        <div class="items">
+                            <label for="metas_componente">Componente:</label>
+                            <input type="text" name="metas_componente" id="metas_componente" value="<?php echo $metas["Componente"]?>" readonly>
+                        </div>
+                        <div class="items" style="margin-right: 18.45%;">
+                            <label for="metas_fecha_apertura">Fecha de apertura:</label>
+                            <input type="text" name="metas_fecha_apertura" id="metas_fecha_apertura" value="<?php echo $metas["Fecha_De_Apertura"]?>" readonly>
+                        </div>
+                        <div class="items" style="margin-right: 16.99%;">
+                            <label for="metas_fecha_cierre">Fecha de cierre:</label>
+                            <input type="text" name="metas_fecha_cierre" id="metas_fecha_cierre" value="<?php echo $metas["Fecha_De_Cierre"]?>" readonly>
+                        </div>
+                        </br>
+
+                        <div class="items">
+                            <label>Descripción de la meta:</label>
+                            <textarea name="meta_descripcion_nueva" id="meta_descripcion_nueva" rows="4" cols="50" readonly><?php echo $metas["Descripcion"]?></textarea>      
+                        </div>
+
+                        <input type="submit" value="Eliminar" class="submit">
+                        <input type="button" class="submit" onclick="location.href='metas.php' "value="Volver" /> 
+
+                    </form>
+                </div>                
             </div>
 
         </div>

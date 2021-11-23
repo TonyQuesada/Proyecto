@@ -15,6 +15,8 @@ if(!isset($_SESSION['u_ID']))
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../favicon.ico">
         <link rel="stylesheet" href="../css/styles_general.css">
+        <link rel="stylesheet" href="../css/styles_direccion.css">
+        <link rel="stylesheet" href="../icofont/icofont.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>        
     </head>
     <body>
@@ -68,54 +70,57 @@ if(!isset($_SESSION['u_ID']))
                 <?php } ?>                
             </div>
 
-            <div class="panel">
-            <h2>Modificar Alcances</h2>
-                <div class="contenido">
-                    
-                    <form method="post" action="../administrador.php">
-                        <div class="items">
-                            <label for="roles_nombre">Identificador de la meta:</label>
-                        </div>                   
-                        <div class="items">
-                        <p><select name="id_meta"><option>1</option>
-                            </select></p>
-                        </div>                       
-                        <p>Meta:<br/>
-                            <textarea name="descrip_meta" rows="5" cols="50">Descripción de la meta</textarea></p>
-                        </fieldset>
-                        <div class="items">
-                            <label for="roles_nombre">Identificador del alcance:</label>
-                        </div>                   
-                        <div class="items">
-                        <p><select name="id_alcance">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                            </select></p>
-                        </div>
-                        <div class="items">
-                        <p>Atributo actual: <input type="text" name="atributo"/></p>
-                        <p>Descripción actual:<br/>
-                            <textarea name="descrip_alcance" rows="5" cols="50">Descripción actual del alcance</textarea></p>
-                        </fieldset>   
-                        </div>    
-                        <div class="items">
-                        <p>Nuevo Atributo: <input type="text" name="atributo"/></p>
-                        <p>Nueva Descripción del alcance:<br/>
-                            <textarea name="descrip_alcance" rows="5" cols="50">Ingrese la descripción del alcance</textarea></p>
-                        </fieldset>   
-                        </div>                   
-                              
-                        </br>
+            <div class="panel" style="height: 800px;">
+                <h2>Alcances</h2>
 
-                        <input type="submit" value="Modificar" class="submit">
-                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
-                        </div>
-
-                    </form>
+                </br>
+                <div class="items">
+                    <input type="text" id="Buscar" placeholder="Buscar">
+                    <a class="a2" href="./definir_alcance_metas_agregar.php"><i class="icofont-plus"></i> Agregar alcance</a>
                 </div>
-            </div>
+
+                <div class="items">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 33%;">Atributo</th>
+                                <th>Descripción de la Meta</th>
+                                <th>Descripción del Alcance</th>
+                                <th style="text-align: center;">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="Tabla">
+                            <?php
+                            $sql = "SELECT * FROM Listar_Alcances";
+                            $result = mysqli_query($con, $sql);
+                            while($row = mysqli_fetch_assoc($result)) { 
+                                echo 
+                                "<tr>
+                                    <td>".$row["Atributo"]."</td>";
+
+                                    $meta = $row["Descripcion_Meta"];
+                                    $caracteres = 22;
+                                echo
+                                    "<td>"; echo substr($meta, 0, $caracteres).'...'; echo "</td>";
+
+                                    $Alcance = $row["Descripcion_Del_Alcance"];
+                                echo
+                                    "<td>"; echo substr($Alcance, 0, $caracteres).'...'; echo "</td>
+
+                                    <td>
+                                        <div style=\"text-align: center;\">
+                                            <a class=\"buttontable\" href=\"./definir_alcance_metas_detalle.php?id=".$row["ID"]."\"><i class=\"icofont-search-document\"></i></a>
+                                            <a class=\"buttontable\" href=\"./definir_alcance_metas_modificar.php?id=".$row["ID"]."\"><i class=\"icofont-edit\"></i></a>
+                                            <a class=\"buttontable\" href=\"./definir_alcance_metas_eliminar.php?id=".$row["ID"]."\"><i class=\"icofont-ui-delete\"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>                
+            </div> 
 
         </div>
         <script src="./common.js"></script>
