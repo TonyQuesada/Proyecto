@@ -33,7 +33,7 @@ if(isset($_SESSION['u_ID']))
                     <p class="information">"Administración y Programación de Sitios Web "</p>		
                 </div>
                 <div class="product-image">
-                    <img src="https://www.auditool.org/images/32-Azul-Artículo_940.png" alt="Omar Dsoky">
+                    <img src="http://servicios.inm.gov.co/sisepm-sf/web/img/logo.GIF" alt="Omar Dsoky">
                 </div>
             </div>
 
