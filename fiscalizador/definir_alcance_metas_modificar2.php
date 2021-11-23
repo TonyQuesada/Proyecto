@@ -84,9 +84,9 @@ if ($result) {
                         <?php
                             echo "<input type=\"hidden\" name=\"id\" value=\"".$_POST['id']."\">";
                             echo "<input type=\"hidden\" name=\"atributo_nuevo\" value=\"".$_POST['atributo_nuevo']."\">";
+                            echo "<input type=\"hidden\" name=\"descripcion_meta\" value=\"".$alcances['Descripcion_Meta']."\">";
                         ?>
 
-                        </br>
                         <div class="items">
                             <label>Descripción actual: </label>
                             <textarea name="descrip_viejo" id="descrip_viejo" rows="5" cols="50" readonly><?php echo $alcances['Descripcion_Del_Alcance'] ?></textarea>
@@ -96,7 +96,7 @@ if ($result) {
                             <label>Nueva Descripción del alcance: </label>
                             <textarea name="descrip_nuevo" id="descrip_nuevo" rows="5" cols="50" placeholder="Ingrese la descripción del alcance"></textarea>
                         </div>
-                        </br></br>
+                        </br>
 
 
                         <input type="submit" value="Siguiente" class="submit">

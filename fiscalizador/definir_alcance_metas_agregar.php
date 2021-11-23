@@ -96,7 +96,7 @@ if(!isset($_SESSION['u_ID']))
                         </br></br>
 
                         <input type="submit" value="Siguiente" class="submit">                                      
-                        <input type="button" class="submit" onclick="location.href='../definir_alcance_metas1.php' "value="Volver" />
+                        <input type="button" class="submit" onclick="location.href='definir_alcance_metas1.php' "value="Volver" />
 
                     </form>
                 </div>

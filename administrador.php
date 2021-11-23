@@ -82,11 +82,6 @@
                     <h3>Bienvenido al Sistema de Control Interno</h3>
                 </div>
                 </br>
-                <div class="circular-process">
-                    <input id="circulo1" name="circulo1" type="text" value="20" class="circle">
-                    <input id="circulo2" name="circulo2" type="text" value="45" class="circle">
-                    <input id="circulo3" name="circulo3" type="text" value="60" class="circle">
-                </div>
 
             </div>
 

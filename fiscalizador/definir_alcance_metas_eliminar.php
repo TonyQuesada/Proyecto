@@ -6,6 +6,13 @@ if(!isset($_SESSION['u_ID']))
     header('Location: ../index.php');
 } 
 
+$id = $_GET["id"];
+$sql = "SELECT * FROM Listar_Alcances WHERE ID=$id";
+$result = mysqli_query($con, $sql);
+if ($result) {
+    $alcances = mysqli_fetch_assoc($result);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -72,42 +79,37 @@ if(!isset($_SESSION['u_ID']))
             <h2>Eliminar Alcances</h2>
                 <div class="contenido">
                     
-                    <form method="post" action="../administrador.php">
+                    <form method="post" action="../util/alcances_eliminar.php">
+
+                        <?php
+                            if (isset($_GET["id"])) {
+                                echo "<input type=\"hidden\" name=\"id\" value=\"".$_GET["id"]."\">";
+                            }
+                        ?>
+
                         <div class="items">
-                            <label for="roles_nombre">Identificador de la meta:</label>
-                        </div>                   
+                            <label>Atributo del Alcance:</label>
+                            <input type="text" name="atributo_viejo" id="atributo_viejo" readonly value="<?php echo $alcances['Atributo'] ?>"/>
+                        </div>                        
+                        </br>   
                         <div class="items">
-                        <p><select name="id_meta"><option>1</option>
-                            </select></p>
-                        </div>                       
-                        <p>Meta:<br/>
-                            <textarea name="descrip_meta" rows="5" cols="50">Descripción de la meta</textarea></p>
-                        </fieldset>
+                            <label>Descripción del Alcance: </label>
+                            <textarea name="descrip_viejo" id="descrip_viejo" rows="5" cols="50" readonly><?php echo $alcances['Descripcion_Del_Alcance'] ?></textarea>
+                        </div>                        
                         <div class="items">
-                            <label for="roles_nombre">Identificador del alcance:</label>
-                        </div>                   
-                        <div class="items">
-                        <p><select name="id_alcance">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                            </select></p>
-                        </div>    
-                        <div class="items">
-                        <p>Atributo: <input type="text" name="atributo"/></p>
-                        <p>Descripción del alcance:<br/>
-                            <textarea name="descrip_alcance" rows="5" cols="50">Ingrese la descripción del alcance</textarea></p>
-                        </fieldset>   
-                        </div>                   
-                              
+                            <label>Descripción de la Meta: </label>
+                            <textarea name="descrip_viejo" id="descrip_viejo" rows="5" cols="50" readonly><?php echo $alcances['Descripcion_Meta'] ?></textarea>
+                        </div>                        
                         </br>
 
                         <input type="submit" value="Eliminar" class="submit">
-                        <input type="button" class="submit" onclick="location.href='../administrador.php' "value="Volver" />
-                        </div>
-            </div>
+                        <input type="button" class="submit" onclick="location.href='definir_alcance_metas1.php' "value="Volver" />
+                        
+                        
+                    </form>
 
+                </div>
+            </div>
         </div>
         <script src="./common.js"></script>
     </body>

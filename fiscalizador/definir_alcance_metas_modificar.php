@@ -87,23 +87,8 @@ if ($result) {
                         <div class="items">
                         <p><select name="id_meta"><option>1</option>
                             </select></p>
-                        </div>           
-                        
-                        
-                            <textarea name="descrip_meta" rows="5" cols="50">Descripción de la meta</textarea></p>
-                        </fieldset>
-
-
-                        <div class="items">
-                            <label for="roles_nombre">Identificador del alcance:</label>
-                        </div>                   
-                        <div class="items">
-                        <p><select name="id_alcance">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                            </select></p> -->                        
+                        </div>    -->       
+                                    
                             
                         <?php
                             echo "<input type=\"hidden\" name=\"id\" value=\"".$_GET["id"]."\">";
