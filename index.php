@@ -33,7 +33,7 @@ if(isset($_SESSION['u_ID']))
                     <p class="information" style="text-align: center;">"La primera característica que debe tener un auditor interno es saber escuchar."</p>	
                 </div>
                 <div class="product-image">
-                    <img src="http://servicios.inm.gov.co/sisepm-sf/web/img/logo.GIF" alt="Omar Dsoky" style="opacity:0.7; filter:alpha(opacity=40); ">
+                    <img src="https://i.postimg.cc/4xGLc5wt/logo.gif" alt="Omar Dsoky" style="opacity:0.7; filter:alpha(opacity=40); ">
                 </div>
             </div>
 
