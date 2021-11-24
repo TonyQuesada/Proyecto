@@ -28,7 +28,7 @@ if(!isset($_SESSION['u_ID']))
                     </br>
                 </div>                
                 <div>
-                    <a class="a" href="./util/logout.php">🚪 Salir</a>
+                    <a class="a" href="../util/logout.php">🚪 Salir</a>
                 </div>
             </div>
             <img class="logo" src="../favicon.png" width="67" height="62"> 
