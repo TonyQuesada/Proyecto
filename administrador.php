@@ -69,10 +69,13 @@
                 
                 <!-- Encargado de Departamento -->
                 <?php if ($_SESSION['u_idRol'] == 3){ ?>
+                    </br><a class="a" href="./encargado_departamento/formulario.php"> Formulario</a>
+                    </br><a class="a" href="./encargado_departamento/comunicar.php"> Comunicar Formulario</a>
                 <?php } ?>                        
                 
                 <!-- Empleado -->
                 <?php if ($_SESSION['u_idRol'] == 4){ ?>
+                    </br><a class="a" href="./empleado/evidencias.php"> Evidencias</a>
                 <?php } ?>                
             </div>
 
