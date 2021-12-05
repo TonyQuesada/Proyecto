@@ -80,7 +80,12 @@ if(!isset($_SESSION['u_ID']))
             </div>
 
             <div class="panel">
-
+            <h2>Seleccione el componente</h2>
+            <a href="http://localhost:8080/proyecto/encargado_departamento/formulario_ambiente_control.php"><input type="button" value="Ambiente de Control"></a>
+            <a href="http://localhost:8080/proyecto/encargado_departamento/formulario_valoracion_riesgo.php"><input type="button" value="Valoracion del riesgo"></a>
+            <a href="http://localhost:8080/proyecto/encargado_departamento/formulario_actividades_control.php"><input type="button" value="Actividades de control"></a>
+            <a href="http://localhost:8080/proyecto/encargado_departamento/formulario_sistemas_informacion.php"><input type="button" value="Sistemas de informacion"></a>
+            <a href="http://localhost:8080/proyecto/encargado_departamento/formulario_seguimiento.php"><input type="button" value="Seguimiento"></a>
             </div>
 
         </div>
