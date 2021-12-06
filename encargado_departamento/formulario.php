@@ -14,6 +14,7 @@ if(!isset($_SESSION['u_ID']))
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../favicon.ico">
         <link rel="stylesheet" href="../css/styles_general.css">
+        <link rel="stylesheet" href="../css/styles_card.css">
         <script src="./common.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -81,12 +82,107 @@ if(!isset($_SESSION['u_ID']))
 
             <div class="panel">
             <h2>Seleccione el componente</h2>
-            <a href="http://localhost:8080/proyecto/encargado_departamento/formulario_ambiente_control.php"><input type="button" value="Ambiente de Control"></a>
-            <a href="http://localhost:8080/proyecto/encargado_departamento/formulario_valoracion_riesgo.php"><input type="button" value="Valoracion del riesgo"></a>
-            <a href="http://localhost:8080/proyecto/encargado_departamento/formulario_actividades_control.php"><input type="button" value="Actividades de control"></a>
-            <a href="http://localhost:8080/proyecto/encargado_departamento/formulario_sistemas_informacion.php"><input type="button" value="Sistemas de informacion"></a>
-            <a href="http://localhost:8080/proyecto/encargado_departamento/formulario_seguimiento.php"><input type="button" value="Seguimiento"></a>
-            </div>
+                <!-- <a href="formulario_ambiente_control.php"><input type="button" value="Ambiente de Control"></a> -->
+                <!-- <a href="formulario_valoracion_riesgo.php"><input type="button" value="Valoracion del riesgo"></a> -->
+                <!-- <a href="formulario_actividades_control.php"><input type="button" value="Actividades de control"></a> -->
+                <!-- <a href="formulario_sistemas_informacion.php"><input type="button" value="Sistemas de informacion"></a> -->
+                <!-- <a href="formulario_seguimiento.php"><input type="button" value="Seguimiento"></a> -->
+                <div class="items">
+                </div>
+                
+                <a style="text-decoration: none;" href="formulario_ambiente_control.php">
+                    <article class="c-card c-card--wide" id="a">
+                        <header class="c-card__header">
+                            <h2 class="c-card__title">
+                                Ambiente de control
+                            </h2>
+                            <!-- <img src="http://placehold.it/300x250" class="c-card__image" alt="Card Image" />-->
+                            <!-- <div class="circular-process">
+                                <input class="circle" id="circulo1" name="circulo1" type="text" value=80>						
+                            </div> -->
+                        </header>
+                        <div class="c-card__body">                        
+                            <p class="c-card__intro">                                
+                            </p>
+                        </div>							
+                    </article>
+                </a>
+
+                <a style="text-decoration: none;" href="formulario_valoracion_riesgo.php">
+                    <article class="c-card c-card--wide" id="e">
+                        <header class="c-card__header">
+                            <h2 class="c-card__title">
+                                Valoración del riesgo
+                            </h2>
+                            <!-- <img src="http://placehold.it/300x250" class="c-card__image" alt="Card Image" />-->
+                            <!-- <div class="circular-process">
+                                <input class="circle" id="circulo1" name="circulo1" type="text" value=80>						
+                            </div> -->
+                        </header>
+                        <div class="c-card__body">                        
+                            <p class="c-card__intro">                                
+                            </p>
+                        </div>							
+                    </article>
+                </a>
+
+                <a style="text-decoration: none;" href="formulario_actividades_control.php">
+                    <article class="c-card c-card--wide" id="c">
+                        <header class="c-card__header">
+                            <h2 class="c-card__title">
+                                Actividades de control
+                            </h2>
+                            <!-- <img src="http://placehold.it/300x250" class="c-card__image" alt="Card Image" />-->
+                            <!-- <div class="circular-process">
+                                <input class="circle" id="circulo1" name="circulo1" type="text" value=80>						
+                            </div> -->
+                        </header>
+                        <div class="c-card__body">                        
+                            <p class="c-card__intro">                                
+                            </p>
+                        </div>							
+                    </article>
+                </a>
+
+                <a style="text-decoration: none;" href="formulario_sistemas_informacion.php">
+                    <article class="c-card c-card--wide" id="d">
+                        <header class="c-card__header">
+                            <h2 class="c-card__title">
+                                Sistemas de información
+                            </h2>
+                            <!-- <img src="http://placehold.it/300x250" class="c-card__image" alt="Card Image" />-->
+                            <!-- <div class="circular-process">
+                                <input class="circle" id="circulo1" name="circulo1" type="text" value=80>						
+                            </div> -->
+                        </header>
+                        <div class="c-card__body">                        
+                            <p class="c-card__intro">                                
+                            </p>
+                        </div>							
+                    </article>
+                </a>
+
+                <a style="text-decoration: none;" href="formulario_seguimiento.php">
+                    <article class="c-card c-card--wide" id="b">
+                        <header class="c-card__header">
+                            <h2 class="c-card__title">
+                                Seguimiento
+                            </h2>
+                            <!-- <img src="http://placehold.it/300x250" class="c-card__image" alt="Card Image" />-->
+                            <!-- <div class="circular-process">
+                                <input class="circle" id="circulo1" name="circulo1" type="text" value=80>						
+                            </div> -->
+                        </header>
+                        <div class="c-card__body">                        
+                            <p class="c-card__intro">                                
+                            </p>
+                        </div>							
+                    </article>
+                </a>
+
+            </div>			
+            
+
 
         </div>
     </body>
