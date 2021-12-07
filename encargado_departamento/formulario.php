@@ -90,7 +90,7 @@ if(!isset($_SESSION['u_ID']))
                 <div class="items">
                 </div>
                 
-                <a style="text-decoration: none;" href="formulario_ambiente_control.php">
+                <a style="text-decoration: none;" href="formulario_Ambiente_Control.php">
                     <article class="c-card c-card--wide" id="a">
                         <header class="c-card__header">
                             <h2 class="c-card__title">
@@ -104,7 +104,7 @@ if(!isset($_SESSION['u_ID']))
                     </article>
                 </a>
 
-                <a style="text-decoration: none;" href="formulario_valoracion_riesgo.php">
+                <a style="text-decoration: none;" href="formulario_Valoracion_Riesgo.php">
                     <article class="c-card c-card--wide" id="e">
                         <header class="c-card__header">
                             <h2 class="c-card__title">
@@ -122,7 +122,7 @@ if(!isset($_SESSION['u_ID']))
                     </article>
                 </a>
 
-                <a style="text-decoration: none;" href="formulario_actividades_control.php">
+                <a style="text-decoration: none;" href="formulario_Actividades_Control.php">
                     <article class="c-card c-card--wide" id="c">
                         <header class="c-card__header">
                             <h2 class="c-card__title">
@@ -140,7 +140,7 @@ if(!isset($_SESSION['u_ID']))
                     </article>
                 </a>
 
-                <a style="text-decoration: none;" href="formulario_sistemas_informacion.php">
+                <a style="text-decoration: none;" href="formulario_Sistemas_Informacion.php">
                     <article class="c-card c-card--wide" id="b">
                         <header class="c-card__header">
                             <h2 class="c-card__title">
@@ -158,7 +158,7 @@ if(!isset($_SESSION['u_ID']))
                     </article>
                 </a>
 
-                <a style="text-decoration: none;" href="formulario_seguimiento.php">
+                <a style="text-decoration: none;" href="formulario_Seguimiento.php">
                     <article class="c-card c-card--wide" id="d">
                         <header class="c-card__header">
                             <h2 class="c-card__title">
