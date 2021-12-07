@@ -80,26 +80,102 @@ if(!isset($_SESSION['u_ID']))
             </div>
 
             <div class="panel">
-
-            <div class="wrapper_row js_complete_quizz_question_wrapper" style="">
-            <div class="row js_error_placement_parent step_22">
-                <div class="m_header_step" data-step="22">
-                <h3 class="js_error_placement quizz_question ">Componente Actividades de Control</h3>
-                </div>
-                <div class="form_fields matrix_content matrix_single">
-                <ul class="cols-4">
-                    <li class="question_row header"><span class="question" style="max-width: calc( (100% / (4 + 1) ) - 1em);"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);">Características</span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);">Alcance</span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);">Formalidad</span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);">Aplicación</span></li>
-                    <li class="question_row"><span class="question" style="max-width: calc( (100% / (4 + 1) ) - 1em);">Incipiente A</span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103622" name="participation[promo_response_attributes][response_36203_matrix_question_20]" id="participation_promo_response_attributes_response_36203_matrix_question_20_103622"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103623" name="participation[promo_response_attributes][response_36203_matrix_question_20]" id="participation_promo_response_attributes_response_36203_matrix_question_20_103623"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103624" name="participation[promo_response_attributes][response_36203_matrix_question_20]" id="participation_promo_response_attributes_response_36203_matrix_question_20_103624"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103625" name="participation[promo_response_attributes][response_36203_matrix_question_20]" id="participation_promo_response_attributes_response_36203_matrix_question_20_103625"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103626" name="participation[promo_response_attributes][response_36203_matrix_question_20]" id="participation_promo_response_attributes_response_36203_matrix_question_20_103626"></span></li>
-                    <li class="question_row"><span class="question" style="max-width: calc( (100% / (4 + 1) ) - 1em);">Novato B</span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103622" name="participation[promo_response_attributes][response_36203_matrix_question_21]" id="participation_promo_response_attributes_response_36203_matrix_question_21_103622"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103623" name="participation[promo_response_attributes][response_36203_matrix_question_21]" id="participation_promo_response_attributes_response_36203_matrix_question_21_103623"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103624" name="participation[promo_response_attributes][response_36203_matrix_question_21]" id="participation_promo_response_attributes_response_36203_matrix_question_21_103624"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103625" name="participation[promo_response_attributes][response_36203_matrix_question_21]" id="participation_promo_response_attributes_response_36203_matrix_question_21_103625"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103626" name="participation[promo_response_attributes][response_36203_matrix_question_21]" id="participation_promo_response_attributes_response_36203_matrix_question_21_103626"></span></li>
-                    <li class="question_row"><span class="question" style="max-width: calc( (100% / (4 + 1) ) - 1em);">Competente C</span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103622" name="participation[promo_response_attributes][response_36203_matrix_question_22]" id="participation_promo_response_attributes_response_36203_matrix_question_22_103622"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103623" name="participation[promo_response_attributes][response_36203_matrix_question_22]" id="participation_promo_response_attributes_response_36203_matrix_question_22_103623"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103624" name="participation[promo_response_attributes][response_36203_matrix_question_22]" id="participation_promo_response_attributes_response_36203_matrix_question_22_103624"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103625" name="participation[promo_response_attributes][response_36203_matrix_question_22]" id="participation_promo_response_attributes_response_36203_matrix_question_22_103625"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103626" name="participation[promo_response_attributes][response_36203_matrix_question_22]" id="participation_promo_response_attributes_response_36203_matrix_question_22_103626"></span></li>
-                    <li class="question_row"><span class="question" style="max-width: calc( (100% / (4 + 1) ) - 1em);">Diestro D</span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103622" name="participation[promo_response_attributes][response_36203_matrix_question_23]" id="participation_promo_response_attributes_response_36203_matrix_question_23_103622"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103623" name="participation[promo_response_attributes][response_36203_matrix_question_23]" id="participation_promo_response_attributes_response_36203_matrix_question_23_103623"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103624" name="participation[promo_response_attributes][response_36203_matrix_question_23]" id="participation_promo_response_attributes_response_36203_matrix_question_23_103624"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103625" name="participation[promo_response_attributes][response_36203_matrix_question_23]" id="participation_promo_response_attributes_response_36203_matrix_question_23_103625"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103626" name="participation[promo_response_attributes][response_36203_matrix_question_23]" id="participation_promo_response_attributes_response_36203_matrix_question_23_103626"></span></li>
-                    <li class="question_row"><span class="question" style="max-width: calc( (100% / (4 + 1) ) - 1em);">Experto E</span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103622" name="participation[promo_response_attributes][response_36203_matrix_question_24]" id="participation_promo_response_attributes_response_36203_matrix_question_24_103622"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103623" name="participation[promo_response_attributes][response_36203_matrix_question_24]" id="participation_promo_response_attributes_response_36203_matrix_question_24_103623"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103624" name="participation[promo_response_attributes][response_36203_matrix_question_24]" id="participation_promo_response_attributes_response_36203_matrix_question_24_103624"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103625" name="participation[promo_response_attributes][response_36203_matrix_question_24]" id="participation_promo_response_attributes_response_36203_matrix_question_24_103625"></span><span class="answer" style="max-width: calc( (100% / (4 + 1) ) - 1em);"><input class="js_quizz_radio_button" data-next="1" data-adds-extra-text="0" type="radio" value="103626" name="participation[promo_response_attributes][response_36203_matrix_question_24]" id="participation_promo_response_attributes_response_36203_matrix_question_24_103626"></span></li>
-                </ul>
-                </div>
-            </div>
-            <!-- - class=row -->
-            </div>
-            
+                </br>
+                </br>
+                <h3>
+                    Componente Actividades de Control
+                </h3>
+                </br>
+                <div class="items">
+                    <table>
+                        <thead>
+                            <tr style="text-align: center;">
+                                <th style="width: 20%;"></th>
+                                <th style="width: 20%;">Características</th>
+                                <th style="width: 20%;">Alcance</th>
+                                <th style="width: 20%;">Formalidad</th>
+                                <th style="width: 20%;">Aplicación</th>
+                            </tr>
+                        </thead>
+                        <tbody id="Tabla">
+                            <tr>
+                                <td>A) Incipiente</td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103622" name="participation[promo_response_attributes][response_36203_matrix_question_20]" id="participation_promo_response_attributes_response_36203_matrix_question_20_103622">
+                                </td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103623" name="participation[promo_response_attributes][response_36203_matrix_question_20]" id="participation_promo_response_attributes_response_36203_matrix_question_20_103623">
+                                </td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103624" name="participation[promo_response_attributes][response_36203_matrix_question_20]" id="participation_promo_response_attributes_response_36203_matrix_question_20_103624">
+                                </td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103625" name="participation[promo_response_attributes][response_36203_matrix_question_20]" id="participation_promo_response_attributes_response_36203_matrix_question_20_103625">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>B) Novato</td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103622" name="participation[promo_response_attributes][response_36203_matrix_question_21]" id="participation_promo_response_attributes_response_36203_matrix_question_21_103622">
+                                </td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103623" name="participation[promo_response_attributes][response_36203_matrix_question_21]" id="participation_promo_response_attributes_response_36203_matrix_question_21_103623">
+                                </td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103624" name="participation[promo_response_attributes][response_36203_matrix_question_21]" id="participation_promo_response_attributes_response_36203_matrix_question_21_103624">
+                                </td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103625" name="participation[promo_response_attributes][response_36203_matrix_question_21]" id="participation_promo_response_attributes_response_36203_matrix_question_21_103625">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>C) Competente</td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103622" name="participation[promo_response_attributes][response_36203_matrix_question_22]" id="participation_promo_response_attributes_response_36203_matrix_question_22_103622">
+                                </td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103623" name="participation[promo_response_attributes][response_36203_matrix_question_22]" id="participation_promo_response_attributes_response_36203_matrix_question_22_103623">
+                                </td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103624" name="participation[promo_response_attributes][response_36203_matrix_question_22]" id="participation_promo_response_attributes_response_36203_matrix_question_22_103624">
+                                </td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103625" name="participation[promo_response_attributes][response_36203_matrix_question_22]" id="participation_promo_response_attributes_response_36203_matrix_question_22_103625">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>D) Diestro</td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103622" name="participation[promo_response_attributes][response_36203_matrix_question_23]" id="participation_promo_response_attributes_response_36203_matrix_question_23_103622">
+                                </td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103623" name="participation[promo_response_attributes][response_36203_matrix_question_23]" id="participation_promo_response_attributes_response_36203_matrix_question_23_103623">
+                                </td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103624" name="participation[promo_response_attributes][response_36203_matrix_question_23]" id="participation_promo_response_attributes_response_36203_matrix_question_23_103624">
+                                </td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103625" name="participation[promo_response_attributes][response_36203_matrix_question_23]" id="participation_promo_response_attributes_response_36203_matrix_question_23_103625">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>E) Experto</td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103622" name="participation[promo_response_attributes][response_36203_matrix_question_24]" id="participation_promo_response_attributes_response_36203_matrix_question_24_103622">
+                                </td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103623" name="participation[promo_response_attributes][response_36203_matrix_question_24]" id="participation_promo_response_attributes_response_36203_matrix_question_24_103623">
+                                </td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103624" name="participation[promo_response_attributes][response_36203_matrix_question_24]" id="participation_promo_response_attributes_response_36203_matrix_question_24_103624">
+                                </td>
+                                <td style="text-align: center;">                          
+                                    <input data-next="1" data-adds-extra-text="0" type="radio" value="103625" name="participation[promo_response_attributes][response_36203_matrix_question_24]" id="participation_promo_response_attributes_response_36203_matrix_question_24_103625">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>            
             </div>
 
         </div>

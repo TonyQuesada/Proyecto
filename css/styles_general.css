@@ -52,7 +52,7 @@ body{
 	 border-radius: calc(2 * var(--border-width));
 	 animation: moveGradient 4s alternate infinite;
    
-   border: 1px solid rgb(152, 204, 255);
+   border: 1px solid #98ccff;
    border-radius: 5px;
    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
 }
@@ -135,7 +135,7 @@ body{
   height: 500px;
   margin-left: 90px;
   border-radius: 10px;
-  border: solid 1px #02093e;;
+  border: solid 1px #02093e;
 
   padding-left: 25px;
   padding-top: 15px;
@@ -322,12 +322,13 @@ body{
 /* Hover style */
 .select-css:hover {
 	border-color: #050f5a;
+
 }
 /* Focus style */
 .select-css:focus {
 	border-color: #050f5a;
 	/* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
-	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+	box-shadow: 0 0 1px 3px #3b99fcb3;
 	box-shadow: 0 0 0 3px -moz-mac-focusring;
 	color: #222; 
 	outline: none;

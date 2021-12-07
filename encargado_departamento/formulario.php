@@ -97,14 +97,10 @@ if(!isset($_SESSION['u_ID']))
                                 Ambiente de control
                             </h2>
                             <!-- <img src="http://placehold.it/300x250" class="c-card__image" alt="Card Image" />-->
-                            <!-- <div class="circular-process">
-                                <input class="circle" id="circulo1" name="circulo1" type="text" value=80>						
-                            </div> -->
-                        </header>
-                        <div class="c-card__body">                        
-                            <p class="c-card__intro">                                
-                            </p>
-                        </div>							
+                            <div class="circular-process" style="margin-top: 3px;">
+                                <input class="circle" id="circulo1" name="circulo1" type="text" value= <?php echo 60 ?> >						
+                            </div>
+                        </header>					
                     </article>
                 </a>
 
@@ -115,9 +111,9 @@ if(!isset($_SESSION['u_ID']))
                                 Valoración del riesgo
                             </h2>
                             <!-- <img src="http://placehold.it/300x250" class="c-card__image" alt="Card Image" />-->
-                            <!-- <div class="circular-process">
-                                <input class="circle" id="circulo1" name="circulo1" type="text" value=80>						
-                            </div> -->
+                            <div class="circular-process" style="margin-top: 3px;">
+                                <input class="circle" id="circulo2" name="circulo2" type="text" value= <?php echo 40 ?> >						
+                            </div>
                         </header>
                         <div class="c-card__body">                        
                             <p class="c-card__intro">                                
@@ -133,9 +129,9 @@ if(!isset($_SESSION['u_ID']))
                                 Actividades de control
                             </h2>
                             <!-- <img src="http://placehold.it/300x250" class="c-card__image" alt="Card Image" />-->
-                            <!-- <div class="circular-process">
-                                <input class="circle" id="circulo1" name="circulo1" type="text" value=80>						
-                            </div> -->
+                            <div class="circular-process" style="margin-top: 3px;">
+                                <input class="circle" id="circulo3" name="circulo3" type="text" value= <?php echo 20 ?> >
+                            </div>
                         </header>
                         <div class="c-card__body">                        
                             <p class="c-card__intro">                                
@@ -145,15 +141,15 @@ if(!isset($_SESSION['u_ID']))
                 </a>
 
                 <a style="text-decoration: none;" href="formulario_sistemas_informacion.php">
-                    <article class="c-card c-card--wide" id="d">
+                    <article class="c-card c-card--wide" id="b">
                         <header class="c-card__header">
                             <h2 class="c-card__title">
                                 Sistemas de información
                             </h2>
                             <!-- <img src="http://placehold.it/300x250" class="c-card__image" alt="Card Image" />-->
-                            <!-- <div class="circular-process">
-                                <input class="circle" id="circulo1" name="circulo1" type="text" value=80>						
-                            </div> -->
+                            <div class="circular-process" style="margin-top: 3px;">
+                                <input class="circle" id="circulo4" name="circulo4" type="text" value= <?php echo 80 ?> >
+                            </div>
                         </header>
                         <div class="c-card__body">                        
                             <p class="c-card__intro">                                
@@ -163,15 +159,15 @@ if(!isset($_SESSION['u_ID']))
                 </a>
 
                 <a style="text-decoration: none;" href="formulario_seguimiento.php">
-                    <article class="c-card c-card--wide" id="b">
+                    <article class="c-card c-card--wide" id="d">
                         <header class="c-card__header">
                             <h2 class="c-card__title">
                                 Seguimiento
                             </h2>
                             <!-- <img src="http://placehold.it/300x250" class="c-card__image" alt="Card Image" />-->
-                            <!-- <div class="circular-process">
-                                <input class="circle" id="circulo1" name="circulo1" type="text" value=80>						
-                            </div> -->
+                            <div class="circular-process" style="margin-top: 3px;">
+                                <input class="circle" id="circulo5" name="circulo5" type="text" value= <?php echo 80 ?> >
+                            </div>
                         </header>
                         <div class="c-card__body">                        
                             <p class="c-card__intro">                                
@@ -206,6 +202,29 @@ if(!isset($_SESSION['u_ID']))
             }
         }
         }
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $(".circle").knob({
+                "min":0,
+                "max":100,
+                "width":65,
+                "height":65,
+                "fgColor":"#1e6dc2",
+                "bgColor":"black",
+                "readOnly":true,
+                "displayInput":true,
+                
+            });
+            // var x; 
+            // x = document.getElementById("circulo1").textContent;
+            // if(x => "20")
+            // {
+            // 	document.getElementById("circulo1").style.color = "red";
+            // }
+
+        })
     </script>
 
 </html>
