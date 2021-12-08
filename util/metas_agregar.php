@@ -7,7 +7,7 @@ if(!isset($_SESSION['u_ID'])){
 $nv_componentes = $_POST['metas_componentes'];
 $nv_descripcion = $_POST['meta_descripcion'];
 
-$query = "CALL Ingresar_Metas('".$nv_componentes."','".$nv_descripcion."', NULL, NULL)";        
+$query = "CALL AgregarMeta2('".$nv_componentes."','".$nv_descripcion."')";        
 $query_run = mysqli_query($con, $query);
 // echo $query;
 if($query_run) {

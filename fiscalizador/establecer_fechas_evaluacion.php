@@ -92,22 +92,22 @@ if(!isset($_SESSION['u_ID']))
                         </thead>
                         <tbody id="Tabla">
                             <?php
-                            $sql = "SELECT * FROM ListarFechas ORDER BY ListarFechas.idComponente ASC";
-                            $result = mysqli_query($con, $sql);
-                            while($row = mysqli_fetch_assoc($result)) { 
-                                echo 
-                                "<tr>
-                                    <td>".$row["Componente"]."</td>
-                                    <td style=\"text-align: center;\">".$row["Fecha_Apertura_Componentes"]."</td>
-                                    <td style=\"text-align: center;\">".$row["Fecha_Cierre_Componentes"]."</td>";
+                                $sql = "SELECT * FROM ListarFechas ORDER BY ListarFechas.idComponente ASC";
+                                $result = mysqli_query($con, $sql);
+                                while($row = mysqli_fetch_assoc($result)) { 
+                                    echo 
+                                    "<tr>
+                                        <td>".$row["Componente"]."</td>
+                                        <td style=\"text-align: center;\">".$row["Fecha_Apertura_Componentes"]."</td>
+                                        <td style=\"text-align: center;\">".$row["Fecha_Cierre_Componentes"]."</td>";
 
-                                    if($row["Estado"] == 1){
-                                        echo "<td style=\"text-align: center;\">Activo</td>";
-                                    }else{
-                                        echo "<td style=\"text-align: center;\">Inactivo</td>";
-                                    }
-                                    echo"</tr>";
-                            }
+                                        if($row["Estado"] == 1){
+                                            echo "<td style=\"text-align: center;\">Activo</td>";
+                                        }else{
+                                            echo "<td style=\"text-align: center;\">Inactivo</td>";
+                                        }
+                                        echo"</tr>";
+                                }
                             ?>
                         </tbody>
                     </table>

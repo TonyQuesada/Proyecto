@@ -89,6 +89,6 @@ while ($usuarios = mysqli_fetch_array($result)) {
 
 mysqli_close($con);
 $_COOKIE["success"] = 1;
-header('Location: ../fizcalizador/definir_alcance_metas2.php');  
+header('Location: ../fiscalizador/definir_alcance_metas2.php');  
 
 ?>
